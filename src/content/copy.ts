@@ -256,6 +256,7 @@ export const FOOTER = {
     { label: 'Console', href: '/console' },
     { label: 'Contact', href: '/contact' },
     { label: 'GitHub', href: 'https://github.com/nomos-spec/spec' },
+    { label: 'nomosprotocol.com', href: 'https://nomosprotocol.com' },
   ],
   verification: {
     label: 'Verify a NOMOS signing key',
