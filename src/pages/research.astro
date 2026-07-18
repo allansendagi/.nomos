@@ -1,0 +1,967 @@
+---
+// Nomos · Paper 1 · Applied Theory · v1.0 — transcribed verbatim.
+// Deliberately not wrapped in BaseLayout: reuses /manifesto's standalone
+// parchment/serif identity (the site's other long-form intellectual essay),
+// not the product site's dark instrument-panel theme.
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Operational Logic Infrastructure for the Autonomous Era — NOMOS</title>
+    <meta
+      name="description"
+      content="Why intelligence alone cannot scale, and the missing layer every organization now requires."
+    />
+    <meta property="og:title" content="Operational Logic Infrastructure for the Autonomous Era — NOMOS" />
+    <meta
+      property="og:description"
+      content="Why intelligence alone cannot scale, and the missing layer every organization now requires."
+    />
+    <meta property="og:type" content="article" />
+  </head>
+  <body>
+    <div class="doc">
+      <div class="wrap">
+        <a class="back" href="/">← nomos</a>
+
+        <header class="masthead">
+          <p class="kicker">Nomos · Paper 1 · Applied Theory · v1.0</p>
+          <h1>Operational Logic Infrastructure for the Autonomous Era</h1>
+          <p class="dek">
+            Why Intelligence Alone Cannot Scale — and the Missing Layer Every Organization Now Requires
+          </p>
+          <p class="meta">Published: 2026 · Classification: Public Release · ~18 min read</p>
+        </header>
+
+        <div class="proof-note">
+          <svg class="mark" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.4"></circle>
+            <path
+              d="M8 12l2.5 2.5L16 9"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          <p>
+            <strong>Implementation note.</strong> Since this paper was published, Nomos has launched a public API, a
+            self-serve free tier, and a library of public governance artifacts. The principles and theoretical
+            framework below remain unchanged.
+          </p>
+        </div>
+
+        <main>
+          <h2 class="exec-heading">Executive Summary</h2>
+          <p>
+            Artificial Intelligence is advancing at unprecedented speed. Models are becoming more capable, cheaper,
+            and increasingly autonomous. Yet despite these breakthroughs, enterprise AI initiatives continue to fail
+            at scale.
+          </p>
+          <p>
+            The dominant explanation for these failures focuses on data quality, model selection, or technical
+            integration. While important, these factors do not address the primary systemic constraint.
+          </p>
+          <p class="pull">
+            AI systems fail not because intelligence is insufficient — but because the underlying operational logic
+            of organizations has never been formalized, governed, or engineered for scale.
+          </p>
+          <p>Every organization runs on a vast, invisible decision layer composed of:</p>
+          <ul class="bullets">
+            <li>Business rules</li>
+            <li>Human judgment</li>
+            <li>Exception handling</li>
+            <li>Risk trade-offs</li>
+            <li>Undocumented workflows</li>
+          </ul>
+          <p>
+            This logic governs how work actually happens. Today it exists informally — embedded in people's heads,
+            email threads, spreadsheets, tribal knowledge, and fragmented software behavior.
+          </p>
+          <p>
+            When automation accelerates execution without formalizing this logic, failures become inevitable. Speed
+            amplifies fragility. Intelligence executes broken systems faster.
+          </p>
+          <p>
+            This paper introduces Operational Logic Infrastructure as a new foundational layer required for the
+            autonomous era — the systematic extraction, formalization, governance, and enforcement of organizational
+            decision systems.
+          </p>
+
+          <div class="roman"><span class="num">Section 01</span><span class="rule"></span></div>
+          <h2>The AI Scaling Paradox</h2>
+          <p>
+            Modern AI models now exceed human capability in pattern recognition, language, and complex reasoning.
+            Yet enterprise adoption outcomes remain deeply inconsistent.
+          </p>
+          <p>Organizations report:</p>
+          <ul class="bullets">
+            <li>Stalled pilots</li>
+            <li>Unsafe automations</li>
+            <li>Compliance failures</li>
+            <li>Escalating costs</li>
+            <li>Loss of trust in AI initiatives</li>
+          </ul>
+          <p class="pull">This paradox reveals a structural issue. Intelligence is no longer the bottleneck. Infrastructure is.</p>
+          <p>AI can reason. AI can execute. AI can optimize. But AI cannot compensate for:</p>
+          <ul class="bullets">
+            <li>Undocumented decision systems</li>
+            <li>Conflicting rules</li>
+            <li>Implicit judgment</li>
+            <li>Undefined risk boundaries</li>
+            <li>Fragile data assumptions</li>
+          </ul>
+          <p>When intelligence is layered onto informal systems, the result is instability. The faster the execution, the faster failure propagates.</p>
+
+          <div class="roman"><span class="num">Section 02</span><span class="rule"></span></div>
+          <h2>The Hidden System Every Organization Runs On</h2>
+          <p>Beneath every process lies an invisible architecture. Not software. Not data. Operational Logic.</p>
+          <p>This includes:</p>
+          <ul class="bullets">
+            <li>When approvals are required</li>
+            <li>Which exceptions override policy</li>
+            <li>How conflicts are resolved</li>
+            <li>Which risks are tolerated</li>
+            <li>What judgment humans apply when rules break</li>
+          </ul>
+          <div class="proof-note plain">
+            <p>
+              <strong>Example.</strong> An invoice process is not "receive → approve → pay." It contains threshold
+              exceptions, vendor-specific overrides, compliance triggers, informal human checks, and historical
+              heuristics.
+            </p>
+          </div>
+          <p>
+            This logic is rarely documented. Yet it governs outcomes. Today, this logic lives in employee experience,
+            Slack conversations, email chains, undocumented process tweaks, and legacy habits.
+          </p>
+          <p>It is not versioned. Not governed. Not auditable. Not scalable. And yet it is the true operating system of the business.</p>
+
+          <div class="roman"><span class="num">Section 03</span><span class="rule"></span></div>
+          <h2>The Fundamental Failure Mechanism of AI</h2>
+          <p>
+            When organizations automate, they typically digitize execution — not logic. They connect systems. They
+            deploy models. They optimize steps. But they skip the formalization of decision systems.
+          </p>
+          <p>This creates four systemic breakdowns:</p>
+          <div class="breakdown-grid">
+            <div><span class="bd-num">01</span><span class="bd-title">Invisible Complexity</span><span class="bd-body">Decision trees are deeper than assumed.</span></div>
+            <div><span class="bd-num">02</span><span class="bd-title">Fragile Data Assumptions</span><span class="bd-body">Volume is mistaken for quality.</span></div>
+            <div><span class="bd-num">03</span><span class="bd-title">Uncaptured Human Judgment</span><span class="bd-body">Critical interventions remain informal.</span></div>
+            <div><span class="bd-num">04</span><span class="bd-title">Zero Governance</span><span class="bd-body">No one can defend outcomes.</span></div>
+          </div>
+          <p class="pull">AI does not fix these weaknesses. It accelerates them.</p>
+
+          <div class="roman"><span class="num">Section 04</span><span class="rule"></span></div>
+          <h2>The Laws of Decision Infrastructure</h2>
+          <p>Through repeated analysis across workflows, industries, and automation attempts, several foundational laws emerge.</p>
+          <div class="law-list">
+            <div><span class="law-num">Law 1</span><span class="law-title">Logic Must Be Formal Before It Can Scale</span><span class="law-body">Informal judgment collapses under automation.</span></div>
+            <div><span class="law-num">Law 2</span><span class="law-title">Speed Magnifies Hidden Risk</span><span class="law-body">Faster execution exposes structural fragility.</span></div>
+            <div><span class="law-num">Law 3</span><span class="law-title">Data Quality Gates Autonomy</span><span class="law-body">Poor data forces human oversight indefinitely.</span></div>
+            <div><span class="law-num">Law 4</span><span class="law-title">Governance Must Precede Automation</span><span class="law-body">Trust emerges from auditable constraints, not model confidence.</span></div>
+            <div><span class="law-num">Law 5</span><span class="law-title">Intelligence Executes Systems — It Does Not Fix Them</span><span class="law-body">Broken logic produces faster failure.</span></div>
+          </div>
+          <p>These laws are technology-agnostic. They apply regardless of model capability.</p>
+
+          <div class="roman"><span class="num">Section 05</span><span class="rule"></span></div>
+          <h2>Introducing Operational Logic Infrastructure</h2>
+          <p>Operational Logic Infrastructure (OLI) is the formal system layer that:</p>
+          <ul class="bullets">
+            <li>Extracts decision logic</li>
+            <li>Structures it into explicit rules and flows</li>
+            <li>Verifies readiness with evidence</li>
+            <li>Governs constraints and trade-offs</li>
+            <li>Enforces compliance and risk boundaries</li>
+            <li>Prepares systems for safe autonomy</li>
+          </ul>
+          <p>It transforms:</p>
+          <div class="transform-list">
+            <div><span>Tribal knowledge</span><span class="t-arrow">→</span><span class="t-to">formal systems</span></div>
+            <div><span>Implicit judgment</span><span class="t-arrow">→</span><span class="t-to">explicit logic</span></div>
+            <div><span>Assumed readiness</span><span class="t-arrow">→</span><span class="t-to">proven readiness</span></div>
+          </div>
+          <p class="pull">This is not consulting. This is not automation. This is infrastructure engineering.</p>
+
+          <h3>The .nomos Logic Specification</h3>
+          <p>Operational Logic Infrastructure produces a structured, executable logic artifact — the .nomos file.</p>
+          <p>A .nomos file contains:</p>
+          <ul class="bullets">
+            <li>Explicit decision rules</li>
+            <li>Verified data requirements</li>
+            <li>Exception handling paths</li>
+            <li>Risk thresholds</li>
+            <li>Human override conditions</li>
+            <li>Governance constraints</li>
+            <li>Audit metadata</li>
+          </ul>
+          <p>
+            In effect, it is: the operating logic of a workflow — formalized, verifiable, and executable by agents.
+          </p>
+          <p class="pull">Where software defines what systems can do, .nomos defines what decisions are allowed to happen.</p>
+
+          <h3>Why Prompt-Based Automation Cannot Scale</h3>
+          <p>Prompt-driven systems fail for the same reason informal workflows fail:</p>
+          <ul class="bullets">
+            <li>Hidden assumptions</li>
+            <li>No governance layer</li>
+            <li>No auditability</li>
+            <li>No enforceable constraints</li>
+          </ul>
+          <p class="pull">Prompts are narratives. Infrastructure is law.</p>
+
+          <div class="roman"><span class="num">Section 05A</span><span class="rule"></span></div>
+          <h2>The Formalization Paradox: Why Judgment Must Be Engineered, Not Eliminated</h2>
+          <p>
+            A natural objection arises when discussing the formalization of operational logic: human judgment is
+            difficult to extract. Much of it is tacit, experience-based, and only visible when exceptions occur.
+          </p>
+          <p>
+            This is correct. Professionals often do not consciously articulate the rules they apply. They operate
+            through pattern recognition, heuristics, and contextual awareness built over time.
+          </p>
+          <p>However, this difficulty does not invalidate the need for formalization. It explains why automation repeatedly fails.</p>
+
+          <h3>Informal Judgment Is Not Flexibility — It Is Hidden Fragility</h3>
+          <p>
+            Today's organizations rely on invisible decision-making: undocumented overrides, experience-based
+            shortcuts, exception handling in people's heads, ad-hoc risk assessments.
+          </p>
+          <p>This appears flexible at human speed. At machine speed, it becomes systemic risk.</p>
+          <p>
+            When automation accelerates execution: hidden rules conflict. Exceptions compound. Errors propagate
+            instantly. Accountability disappears. What once felt adaptive becomes uncontrollable.
+          </p>
+
+          <h3>Formalization Does Not Remove Judgment — It Governs It</h3>
+          <p>Operational Logic Infrastructure is not about replacing human intelligence. It is about engineering where judgment applies.</p>
+          <p>In mature autonomous systems — aviation, financial trading, medical devices — judgment is:</p>
+          <ul class="bullets">
+            <li>Explicitly bounded</li>
+            <li>Triggered by defined conditions</li>
+            <li>Escalated when uncertainty rises</li>
+            <li>Audited continuously</li>
+          </ul>
+          <p class="pull">Machines act when certainty is high. Humans intervene when ambiguity increases. This is how safety and scalability coexist.</p>
+
+          <div class="roman"><span class="num">Section 05B</span><span class="rule"></span></div>
+          <h2>Solving for Logic Entropy: The Guardrail of Autonomy</h2>
+          <p>
+            Formalization is not a one-time event. Every decision system is subject to Logic Entropy — the natural
+            decay of relevance as market conditions, regulations, and competitive landscapes shift.
+          </p>
+          <p>
+            When logic is informal, entropy is invisible. Rules "drift," people stop following outdated threads, and
+            the system quietly breaks. In the autonomous era, this drift is catastrophic.
+          </p>
+          <p>Operational Logic Infrastructure solves for entropy through three mechanisms:</p>
+          <div class="law-list">
+            <div><span class="law-num">01</span><span class="law-title">Detection of Uncertainty Thresholds</span><span class="law-body">OLI identifies when a real-world scenario falls outside the governed boundaries of the .nomos specification. It knows when it is "out of its depth."</span></div>
+            <div><span class="law-num">02</span><span class="law-title">Explicit Escalation Logic</span><span class="law-body">When uncertainty rises or a logic conflict is detected, the system triggers a high-fidelity hand-off to human judgment, ensuring that autonomy is always bounded by safety.</span></div>
+            <div><span class="law-num">03</span><span class="law-title">Dynamic Versioning</span><span class="law-body">Because logic is infrastructure, it can be patched, audited, and redeployed across the entire agent fleet simultaneously.</span></div>
+          </div>
+          <p class="pull">The Principle of Bounded Autonomy: Intelligence provides the power to act. Infrastructure provides the wisdom to stop.</p>
+
+          <div class="roman"><span class="num">Section 06</span><span class="rule"></span></div>
+          <h2>Why This Layer Is Now Inevitable</h2>
+          <p>Every technological era required a new foundational layer:</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Era</th><th>Missing Layer</th><th>Result</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Internet</td><td>Software infrastructure</td><td>Digital economy</td></tr>
+                <tr><td>Cloud</td><td>Compute orchestration</td><td>Scalability</td></tr>
+                <tr><td>Mobile</td><td>Application platforms</td><td>App ecosystems</td></tr>
+                <tr><td>AI</td><td>Operational Logic Infrastructure</td><td>Safe autonomy</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            As AI systems become faster and more autonomous, informal decision systems become existential risk.
+            Regulators will demand explainability. Boards will demand governance. Markets will demand reliability.
+          </p>
+          <p class="pull">Logic must become formal infrastructure.</p>
+
+          <div class="roman"><span class="num">Section 06A</span><span class="rule"></span></div>
+          <h2>Logic as an Executable Agent Substrate</h2>
+          <p>
+            Formalizing operational logic is not only a governance requirement — it is the missing execution layer
+            for autonomous systems.
+          </p>
+          <p>Modern AI agents can reason, plan, and act. What they lack is a structured, verifiable representation of institutional decision logic.</p>
+          <p>Today, agents operate primarily through:</p>
+          <ul class="bullets">
+            <li>Prompts</li>
+            <li>Heuristics</li>
+            <li>Ad hoc workflows</li>
+            <li>Brittle integrations</li>
+          </ul>
+          <p>This approach scales intelligence but not reliability. Prompts describe behavior. They do not encode governance.</p>
+
+          <div class="roman"><span class="num">Section 07</span><span class="rule"></span></div>
+          <h2>From Logic to Economic Asset</h2>
+          <p>Once logic is formalized:</p>
+          <ul class="bullets">
+            <li>It becomes auditable</li>
+            <li>It becomes reusable</li>
+            <li>It becomes improvable</li>
+            <li>It becomes defensible</li>
+            <li>It becomes transferable</li>
+          </ul>
+          <p>
+            This creates the foundation for a future Logic Exchange — where validated decision systems can be
+            licensed, benchmarked, insured, and scaled.
+          </p>
+          <p class="pull">Operational logic becomes a new class of institutional asset.</p>
+
+          <div class="roman"><span class="num">Section 07A</span><span class="rule"></span></div>
+          <h2>The NOMOS Exchange: The Global Market for Executable Logic</h2>
+          <p>
+            The formalization of operational logic into the .nomos standard enables a new economic layer: a market
+            for verified, executable decision systems.
+          </p>
+          <p>
+            Today, when organizations seek proven workflows — compliance programs, risk heuristics, operational
+            controls — they rely on bespoke consulting, internal reinvention, and undocumented expertise. These
+            systems are expensive to reproduce, difficult to validate, and impossible to transfer.
+          </p>
+          <p class="pull">This makes a global logic market inevitable.</p>
+
+          <h3>The Logic Economy</h3>
+          <p>On the NOMOS Exchange, organizations can:</p>
+          <ul class="bullets">
+            <li>License validated .nomos logic artifacts created by industry leaders</li>
+            <li>Deploy governed decision systems instantly without rebuilding</li>
+            <li>Monetize proprietary operational intelligence as recurring infrastructure revenue</li>
+          </ul>
+          <p>Institutional knowledge becomes reusable capital. What was once tribal becomes transferable.</p>
+
+          <h3>The Verification &amp; Trust Layer</h3>
+          <p>Every logic artifact on the Exchange carries verification tiers:</p>
+          <div class="tier-list">
+            <div><span class="tier-name">Compiled</span><span class="tier-body">Structurally valid and executable</span></div>
+            <div><span class="tier-name">Proven</span><span class="tier-body">Supported by evidence and performance data</span></div>
+            <div><span class="tier-name">Sovereign</span><span class="tier-body">Certified for regulated and high-stakes environments</span></div>
+          </div>
+
+          <h3>The Economic Shift</h3>
+          <div class="transform-list">
+            <div><span>Software as a Service</span><span class="t-arrow">→</span><span class="t-to">Logic as an Asset</span></div>
+          </div>
+          <p class="pull">This is the foundation of autonomous commerce.</p>
+
+          <div class="closing">
+            <h2>Conclusion</h2>
+            <p>The failure of AI in enterprises is not a failure of intelligence. It is a failure of infrastructure.</p>
+            <p>Organizations have attempted to automate execution without first engineering the logic that governs outcomes.</p>
+            <p>Operational Logic Infrastructure is the missing layer that enables safe, scalable autonomy.</p>
+            <p>Those who formalize it will scale intelligence. Those who ignore it will continue to accelerate failure.</p>
+            <p class="pull">The autonomous era will not be won by smarter models alone. It will be won by better decision systems.</p>
+          </div>
+
+          <div class="roman appendix"><span class="num">Appendix A</span><span class="rule"></span></div>
+          <h2>The .nomos Logic Standard (v1.0)</h2>
+          <p class="spec-meta">Protocol: OPEN_GOVERNANCE &nbsp;·&nbsp; Encoding: UTF-8 &nbsp;·&nbsp; Format: JSON-L</p>
+
+          <h3>1. Objective</h3>
+          <p>
+            The .nomos file format is a deterministic, machine-executable container for operational logic. Unlike a
+            prompt, which is probabilistic, a .nomos file is an enforcement artifact. It defines the "Legal Physics"
+            of an autonomous system.
+          </p>
+
+          <h3>2. Core Structure (The Logic Stack)</h3>
+          <p>A .nomos file consists of four immutable layers:</p>
+
+          <p class="layer-label">Layer 1: The Identity Header (The Hash)</p>
+          <pre><code>{`{
+  "version": "1.0",
+  "artifact_id": "NOMOS-8821-X",
+  "logic_hash": "sha256:7f8c9b2d...",
+  "timestamp": "2024-10-27T10:00Z"
+}`}</code></pre>
+
+          <p class="layer-label">Layer 2: The Domain Constraints (The Rules)</p>
+          <pre><code>{`{
+  "layer": "constraints",
+  "sovereignty": "internal_only",
+  "rules": [
+    { "id": "R-001", "condition": "amount > 10000", "action": "require_approval" }
+  ]
+}`}</code></pre>
+
+          <p class="layer-label">Layer 3: The Evidence Record (The Proof)</p>
+          <pre><code>{`{
+  "layer": "evidence",
+  "behavioral_data": "sha256:evidence...",
+  "outcome_data": "sha256:outcomes...",
+  "ari_score": 0.87
+}`}</code></pre>
+
+          <p class="layer-label">Layer 4: The Governance Seal</p>
+          <pre><code>{`{
+  "layer": "seal",
+  "sealed_at": "2024-10-27T10:00Z",
+  "sealed_by": "org:acme-bank",
+  "seal_hash": "sha256:final..."
+}`}</code></pre>
+
+          <div class="next-steps">
+            <a class="next-card" href="/">
+              <span class="next-eyebrow">The primitive this theory produces</span>
+              <span class="next-title">See the .nomos protocol</span>
+              <span class="next-body">Operational Logic Infrastructure is the discipline. .nomos is the artifact it produces.</span>
+            </a>
+            <a class="next-card" href="/guard">
+              <span class="next-eyebrow">For developers</span>
+              <span class="next-title">npx nomos-guard</span>
+              <span class="next-body"
+                >Put a sealed policy in front of an MCP tool call in under a minute. No account, no setup — see a
+                verdict on your own terminal.</span
+              >
+            </a>
+          </div>
+        </main>
+
+        <footer class="share">
+          <div class="links">
+            <a href="https://github.com/nomos-spec/spec">The open spec</a>
+            <a href="/manifesto">The manifesto</a>
+            <a href="/">nomosprotocol.com</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  :root {
+    --paper: #faf9f7;
+    --paper-2: #f2f0ec;
+    --ink: #1b1a17;
+    --ink-2: #46433c;
+    --ink-3: #7a7568;
+    --hair: #e3ded3;
+    --hair-2: #d2cabb;
+    --violet: #5e6ad2;
+    --violet-2: #4954bd;
+    --seal: #9a7a2e;
+    --seal-wash: #f3ecda;
+
+    --serif: ui-serif, 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio', Palatino, 'Book Antiqua', Georgia,
+      serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+    --measure: 64ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #161512;
+      --paper-2: #1d1c18;
+      --ink: #ece9e1;
+      --ink-2: #c2beb1;
+      --ink-3: #8a8677;
+      --hair: #322f28;
+      --hair-2: #45412f;
+      --violet: #8b93ee;
+      --violet-2: #a6ace9;
+      --seal: #d4b463;
+      --seal-wash: #2a2211;
+    }
+  }
+  :root[data-theme='light'] {
+    --paper: #faf9f7;
+    --paper-2: #f2f0ec;
+    --ink: #1b1a17;
+    --ink-2: #46433c;
+    --ink-3: #7a7568;
+    --hair: #e3ded3;
+    --hair-2: #d2cabb;
+    --violet: #5e6ad2;
+    --violet-2: #4954bd;
+    --seal: #9a7a2e;
+    --seal-wash: #f3ecda;
+  }
+  :root[data-theme='dark'] {
+    --paper: #161512;
+    --paper-2: #1d1c18;
+    --ink: #ece9e1;
+    --ink-2: #c2beb1;
+    --ink-3: #8a8677;
+    --hair: #322f28;
+    --hair-2: #45412f;
+    --violet: #8b93ee;
+    --violet-2: #a6ace9;
+    --seal: #d4b463;
+    --seal-wash: #2a2211;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+  }
+  .doc {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 28px 140px;
+  }
+
+  .back {
+    display: inline-block;
+    margin-top: 28px;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-3);
+    text-decoration: none;
+  }
+  .back:hover {
+    color: var(--violet);
+  }
+
+  .masthead {
+    padding: 40px 0 32px;
+    text-align: center;
+    border-bottom: 1px solid var(--hair);
+    margin-bottom: 40px;
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--seal);
+    margin: 0 0 20px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .dek {
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--ink-3);
+    letter-spacing: 0.01em;
+    max-width: 48ch;
+    margin: 0 auto 16px;
+  }
+  .meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    margin: 0;
+  }
+
+  .proof-note {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin: 40px 0 60px;
+    padding: 22px 24px;
+    background: var(--seal-wash);
+    border-radius: 4px;
+    border: 1px solid color-mix(in srgb, var(--seal) 35%, transparent);
+  }
+  .proof-note.plain {
+    margin: 32px 0;
+    background: var(--paper-2);
+    border-color: var(--hair);
+  }
+  .proof-note .mark {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    margin-top: 3px;
+    color: var(--seal);
+  }
+  .proof-note p {
+    font-family: var(--sans);
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .proof-note strong {
+    color: var(--seal);
+  }
+  .proof-note.plain strong {
+    color: var(--ink);
+  }
+
+  main {
+    max-width: var(--measure);
+    margin: 0 auto;
+  }
+
+  .exec-heading {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .roman {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin: 72px 0 16px;
+  }
+  .roman.appendix {
+    margin-top: 96px;
+    padding-top: 40px;
+    border-top: 1px solid var(--hair);
+  }
+  .roman .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--seal);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .roman .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--hair-2);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 26px;
+    color: var(--ink);
+  }
+  h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 44px 0 18px;
+    color: var(--ink);
+  }
+  p {
+    margin: 0 0 26px;
+    color: var(--ink-2);
+  }
+  p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .bullets {
+    margin: 0 0 26px;
+    padding-left: 22px;
+    color: var(--ink-2);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .bullets li {
+    margin-bottom: 4px;
+  }
+
+  .pull {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.42;
+    color: var(--violet);
+    font-style: italic;
+    margin: 40px 0;
+    text-wrap: balance;
+  }
+
+  .breakdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+    margin: 32px 0 40px;
+  }
+  .breakdown-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .bd-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--seal);
+  }
+  .bd-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .bd-body {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink-3);
+  }
+
+  .law-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin: 28px 0 32px;
+  }
+  .law-list > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 20px;
+    border-left: 2px solid var(--hair-2);
+  }
+  .law-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--seal);
+  }
+  .law-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .law-body {
+    font-family: var(--sans);
+    font-size: 14.5px;
+    color: var(--ink-3);
+  }
+
+  .transform-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 0 32px;
+    font-family: var(--mono);
+    font-size: 14px;
+  }
+  .transform-list > div {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--ink-3);
+  }
+  .t-arrow {
+    color: var(--seal);
+  }
+  .t-to {
+    color: var(--ink);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 28px 0 32px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 14.5px;
+  }
+  th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding: 0 16px 12px 0;
+    border-bottom: 1px solid var(--hair-2);
+  }
+  td {
+    padding: 14px 16px 14px 0;
+    border-bottom: 1px solid var(--hair);
+    color: var(--ink-2);
+  }
+  td:first-child {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .tier-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 24px 0 32px;
+  }
+  .tier-list > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    padding: 14px 0;
+    border-top: 1px solid var(--hair);
+  }
+  .tier-name {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--seal);
+  }
+  .tier-body {
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--ink-3);
+    text-align: right;
+  }
+
+  .spec-meta {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-bottom: 32px;
+  }
+
+  .layer-label {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  pre {
+    background: var(--paper-2);
+    border: 1px solid var(--hair);
+    border-radius: 4px;
+    padding: 18px 20px;
+    margin: 0 0 28px;
+    overflow-x: auto;
+  }
+  pre code {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    background: none;
+    border: none;
+    padding: 0;
+    white-space: pre;
+  }
+
+  .closing {
+    margin-top: 80px;
+    padding-top: 46px;
+    border-top: 1px solid var(--hair);
+  }
+
+  .next-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 56px;
+  }
+  .next-card {
+    display: block;
+    text-decoration: none;
+    padding: 24px 26px;
+    border-radius: 10px;
+    background: var(--paper-2);
+    border: 1px solid var(--hair);
+    transition:
+      border-color 150ms,
+      transform 150ms;
+  }
+  .next-card:hover {
+    border-color: var(--violet);
+    transform: translateY(-1px);
+  }
+  .next-eyebrow {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 10px;
+  }
+  .next-title {
+    display: block;
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .next-body {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-3);
+  }
+
+  .share {
+    margin-top: 60px;
+    padding: 36px 0 0;
+    border-top: 1px solid var(--hair);
+    font-family: var(--sans);
+    font-size: 13.5px;
+    color: var(--ink-3);
+    text-align: center;
+  }
+  .share .links {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .share a {
+    color: var(--ink-2);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hair-2);
+    padding-bottom: 1px;
+  }
+  .share a:hover {
+    color: var(--violet);
+    border-bottom-color: var(--violet);
+  }
+
+  @media (max-width: 640px) {
+    .roman {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin: 56px 0 14px;
+    }
+    .roman .num {
+      white-space: normal;
+    }
+    .roman .rule {
+      width: 100%;
+      flex: none;
+    }
+    .breakdown-grid {
+      grid-template-columns: 1fr;
+    }
+    .next-steps {
+      grid-template-columns: 1fr;
+    }
+    .tier-list > div {
+      flex-direction: column;
+      gap: 4px;
+    }
+    .tier-body {
+      text-align: left;
+    }
+  }
+</style>

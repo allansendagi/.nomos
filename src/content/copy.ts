@@ -72,8 +72,26 @@ export const SHIFT = {
   closer: '.nomos provides the missing layer.',
 };
 
-export const PRIMITIVE = {
+export const HIDDEN_LAYER = {
   number: '03',
+  eyebrow: 'THE HIDDEN LAYER',
+  headline: 'Intelligence cannot scale without formalized logic.',
+  body: [
+    'Every organization runs on an invisible decision system.',
+    'Rules. Exceptions. Judgment. Risk boundaries.',
+    'This operational logic determines what actually happens.',
+    'But today, most of it exists informally — inside documents, conversations, and human memory.',
+    'When intelligence accelerates execution, informal logic becomes systemic risk.',
+  ],
+  pullquote: 'If logic is informal, entropy is invisible.',
+  before: ['Informal Logic', 'Hidden Entropy', 'Unpredictable Decisions', 'Unsafe Autonomy'],
+  after: ['.nomos', 'Formal Logic', 'Verifiable Authority', 'Bounded Autonomy'],
+  closer: 'Operational Logic Infrastructure is the discipline. .nomos is the artifact it produces.',
+  paperLink: { label: 'Read the full paper', href: '/research' },
+};
+
+export const PRIMITIVE = {
+  number: '04',
   eyebrow: 'THE PRIMITIVE',
   headline: 'The .nomos artifact.',
   dek: 'A new primitive for institutional authority.',
@@ -92,7 +110,7 @@ export const PRIMITIVE = {
 };
 
 export const WHY_NOW = {
-  number: '04',
+  number: '05',
   eyebrow: 'WHY NOW',
   headline: 'Every major transition required new trust infrastructure.',
   rows: [
@@ -124,7 +142,7 @@ export const AUTHORITY_STACK = {
 };
 
 export const PLATFORM = {
-  number: '05',
+  number: '06',
   eyebrow: 'THE ECOSYSTEM',
   headline: 'One protocol. Multiple layers.',
 };
@@ -298,6 +316,7 @@ export const FOOTER = {
   copyright: '© SafeHaven LLC — Steward of the .nomos protocol',
   links: [
     { label: 'Artifact', href: '/artifact' },
+    { label: 'Research', href: '/research' },
     { label: 'Manifesto', href: '/manifesto' },
     { label: 'Docs', href: '/docs' },
     { label: 'Console', href: '/console' },
