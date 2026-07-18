@@ -16,7 +16,8 @@ import { PROBLEM } from '../content/copy';
       ))}
     </div>
 
-    <p class="pullquote">{PROBLEM.pullquote}</p>
+    <p class="pullquote-lead">{PROBLEM.pullquoteLead}</p>
+    <p class="pullquote">{PROBLEM.pullquoteQuestion}</p>
 
     {PROBLEM.body.map((p, i) => (
       <p class:list={['body', { emphasis: i === PROBLEM.body.length - 1 }]}>{p}</p>
@@ -60,12 +61,20 @@ import { PROBLEM } from '../content/copy';
     margin-bottom: 10px;
   }
 
+  .pullquote-lead {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
   .pullquote {
     font-family: var(--font-serif);
     font-style: italic;
     font-size: clamp(26px, 3vw, 38px);
     line-height: 1.3;
-    max-width: 16ch;
+    max-width: 18ch;
     margin: 0 0 56px;
     color: var(--text-primary);
   }

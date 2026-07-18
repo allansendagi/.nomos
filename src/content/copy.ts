@@ -30,17 +30,21 @@ export const HERO = {
 export const PROBLEM = {
   number: '01',
   eyebrow: 'THE PROBLEM',
-  headline: 'Civilization runs on invisible authority.',
+  headline: 'Civilization runs on authority.',
   examples: [
     'A bank approves a loan.',
     'A government issues a license.',
     'A hospital authorizes treatment.',
     'A company authorizes a transaction.',
   ],
-  pullquote: 'Behind every action is the same question: was this decision actually authorized?',
+  pullquoteLead: 'Behind every action is the same question:',
+  pullquoteQuestion: 'Who had the authority to make this decision?',
   body: [
-    'For centuries the answer depended on people — documents, processes, institutional memory, human judgment. That worked because humans were the execution layer.',
-    'Now execution is becoming computational. Authority must evolve.',
+    'For centuries, authority existed in documents, procedures, organizational structures, and human judgment.',
+    'That worked because humans were the execution layer.',
+    'But authority was never portable, machine-readable, or independently verifiable.',
+    'Now machines execute decisions.',
+    'Authority must evolve.',
   ],
 };
 
