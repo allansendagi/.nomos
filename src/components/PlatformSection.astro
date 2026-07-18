@@ -2,30 +2,31 @@
 import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '../content/copy';
 ---
 
-<section id="platform" class="platform">
+<section id="platform" class="eco-header">
   <div class="container">
-    <p class="muted-eyebrow">{PLATFORM.eyebrow}</p>
+    <p class="eyebrow">{PLATFORM.number} — {PLATFORM.eyebrow}</p>
     <h2>{PLATFORM.headline}</h2>
+  </div>
+</section>
 
-    <!-- 1. STUDIO -->
-    <div class="product">
-      <div class="product-head">
-        <span class="index">{STUDIO.index}</span>
-        <div>
-          <p class="name">{STUDIO.name}</p>
-          <p class="tag">{STUDIO.tag}</p>
-        </div>
-      </div>
-
-      <p class="purpose">{STUDIO.purpose}</p>
+<!-- STUDIO -->
+<section class="product">
+  <div class="container product-grid">
+    <div class="product-index">
+      <div class="index-num">{STUDIO.index}</div>
+      <div class="index-tag"><a href="/studio">{STUDIO.tag}</a></div>
+    </div>
+    <div class="product-body">
+      <h3><a href="/studio">{STUDIO.title}</a></h3>
       <p class="layer-label">{STUDIO.layerLabel}</p>
+      <p class="body-text">{STUDIO.body}</p>
 
       <div class="io-grid">
         <div>
           <p class="col-label">Input</p>
-          <ul class="plain-list">
-            {STUDIO.input.map((item) => <li>{item}</li>)}
-          </ul>
+          <div class="plain-list">
+            {STUDIO.input.map((item) => <div>{item}</div>)}
+          </div>
         </div>
         <div>
           <p class="col-label">Output</p>
@@ -33,149 +34,134 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
         </div>
       </div>
 
-      <p class="analogy">{STUDIO.analogy}</p>
-
       <div class="example">
         <p class="example-before">{STUDIO.exampleBefore}</p>
-        <div class="example-arrow">↓ becomes</div>
-        <pre class="example-after"><code>{STUDIO.exampleAfter}</code></pre>
+        <p class="example-arrow">↓ becomes</p>
+        <pre><code>{STUDIO.exampleAfter}</code></pre>
       </div>
 
       <p class="summary">{STUDIO.summary}</p>
     </div>
+  </div>
+</section>
 
-    <!-- 2. REGISTRY -->
-    <div class="product">
-      <div class="product-head">
-        <span class="index">{REGISTRY.index}</span>
-        <div>
-          <p class="name">{REGISTRY.name}</p>
-          <p class="tag">{REGISTRY.tag}</p>
-        </div>
-      </div>
-
-      <p class="purpose">{REGISTRY.purpose}</p>
+<!-- REGISTRY -->
+<section class="product alt">
+  <div class="container product-grid">
+    <div class="product-index">
+      <div class="index-num">{REGISTRY.index}</div>
+      <div class="index-tag"><a href="/registry">{REGISTRY.tag}</a></div>
+    </div>
+    <div class="product-body">
+      <h3><a href="/registry">{REGISTRY.title}</a></h3>
       <p class="layer-label">{REGISTRY.layerLabel}</p>
-
-      <p class="col-label">It handles</p>
-      <div class="chips">
-        {REGISTRY.handles.map((item) => <span class="chip">{item}</span>)}
-      </div>
-
-      <div class="analogy-block">
-        {REGISTRY.analogy.map((line) => <p class="analogy">{line}</p>)}
-      </div>
+      <p class="body-text">{REGISTRY.body}</p>
+      <p class="analogy">{REGISTRY.analogy}</p>
 
       <div class="version-chain">
         {REGISTRY.versionChain.map((v, i) => (
           <>
-            <span class="version-node">{v}</span>
-            {i < REGISTRY.versionChain.length - 1 && <span class="version-arrow">↓</span>}
+            <span class:list={['version-node', { accent: i === REGISTRY.versionChain.length - 1 }]}>{v}</span>
+            {i < REGISTRY.versionChain.length - 1 && <span class="chain-arrow">→</span>}
           </>
         ))}
       </div>
 
-      <p class="col-label">Questions it answers</p>
-      <ul class="questions">
-        {REGISTRY.questions.map((q) => <li>{q}</li>)}
-      </ul>
+      <div class="questions">
+        {REGISTRY.questions.map((q) => <div>— {q}</div>)}
+      </div>
 
       <p class="summary">{REGISTRY.summary}</p>
     </div>
+  </div>
+</section>
 
-    <!-- 3. GUARD -->
-    <div class="product">
-      <div class="product-head">
-        <span class="index">{GUARD.index}</span>
-        <div>
-          <p class="name">{GUARD.name}</p>
-          <p class="tag">{GUARD.tag}</p>
-        </div>
-      </div>
-
+<!-- GUARD -->
+<section class="product">
+  <div class="container product-grid">
+    <div class="product-index">
+      <div class="index-num">{GUARD.index}</div>
+      <div class="index-tag"><a href="/guard">{GUARD.tag}</a></div>
+    </div>
+    <div class="product-body">
+      <h3><a href="/guard">{GUARD.title}</a></h3>
       <p class="layer-label">{GUARD.layerLabel}</p>
-      <p class="purpose">{GUARD.context}</p>
+      <p class="body-text">{GUARD.body}</p>
 
       <div class="guard-flow">
-        {GUARD.flow.map((step, i) => (
-          <>
-            <span class:list={['flow-node', { accent: i === 2 }]}>{step}</span>
-            {i < GUARD.flow.length - 1 && <span class="flow-arrow">↓</span>}
-          </>
-        ))}
+        <div class="flow-box">{GUARD.flowBoxes[0]}</div>
+        <div class="flow-arrow-label">{GUARD.flowLabels[0]} ↓</div>
+        <div class="flow-box accent">{GUARD.flowBoxes[1]}</div>
+        <div class="flow-arrow-label">{GUARD.flowLabels[1]} ↓</div>
+        <div class="flow-box">{GUARD.flowBoxes[2]}</div>
       </div>
-
-      <p class="analogy">{GUARD.sitsBetween}</p>
-      <p class="answers">{GUARD.answers}</p>
 
       <p class="summary">{GUARD.summary}</p>
     </div>
+  </div>
+</section>
 
-    <!-- 4. EXCHANGE -->
-    <div class="product">
-      <div class="product-head">
-        <span class="index">{EXCHANGE.index}</span>
-        <div>
-          <p class="name">{EXCHANGE.name}</p>
-          <p class="tag">{EXCHANGE.tag}</p>
-        </div>
-      </div>
+<!-- EXCHANGE -->
+<section class="product alt">
+  <div class="container product-grid">
+    <div class="product-index">
+      <div class="index-num">{EXCHANGE.index}</div>
+      <div class="index-tag"><a href="/exchange">{EXCHANGE.tag}</a></div>
+    </div>
+    <div class="product-body">
+      <h3><a href="/exchange">{EXCHANGE.title}</a></h3>
+      <p class="layer-label">{EXCHANGE.layerLabel}</p>
 
-      <p class="purpose">{EXCHANGE.intro}</p>
-
-      <div class="analogy-rows">
+      <div class="analogy-grid">
         {EXCHANGE.analogyList.map((row) => (
-          <div class:list={['analogy-row', { accent: row.accent }]}>
-            <span class="platform-name">{row.platform}</span>
-            <span class="arrow-sep">→</span>
-            <span class="product-name">{row.product}</span>
+          <div class:list={['analogy-cell', { accent: row.accent }]}>
+            <div class="platform-name">{row.platform}</div>
+            <div class="product-name">{row.product}</div>
           </div>
         ))}
       </div>
 
       <p class="col-label">Already publishing</p>
-      <div class="publisher-rows">
+      <div class="publisher-list">
         {EXCHANGE.publisherExamples.map((row) => (
-          <div class="publisher-row">
-            <span class="publisher">{row.publisher}</span>
-            <span class="artifact">{row.artifact}</span>
+          <div>
+            {row.publisher} — <span class="artifact">{row.artifact}</span>
           </div>
         ))}
       </div>
 
       <div class="verbs">
-        {EXCHANGE.verbs.map((v) => <span class="verb">{v}</span>)}
+        {EXCHANGE.verbs.map((v) => <span>{v}</span>)}
       </div>
 
       <p class="summary">{EXCHANGE.summary}</p>
     </div>
+  </div>
+</section>
 
-    <!-- SUMMARY TABLE -->
-    <div class="summary-table-wrap">
-      <table class="summary-table">
-        <thead>
-          <tr>
-            {ECOSYSTEM_SUMMARY.headers.map((h) => <th>{h}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          {ECOSYSTEM_SUMMARY.rows.map((row) => (
-            <tr>
-              {row.map((cell, i) => (i === 0 ? <td class="layer-cell">{cell}</td> : <td>{cell}</td>))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+<!-- SUMMARY TABLE -->
+<section class="eco-summary">
+  <div class="summary-grid">
+    <div class="th">Layer</div>
+    <div class="th">Function</div>
+    <div class="th">Simple phrase</div>
+
+    {ECOSYSTEM_SUMMARY.rows.map((row, i) => (
+      <>
+        <div class:list={['td', { accent: i === 0, last: i === ECOSYSTEM_SUMMARY.rows.length - 1 }]}>{row[0]}</div>
+        <div class:list={['td', 'muted', { last: i === ECOSYSTEM_SUMMARY.rows.length - 1 }]}>{row[1]}</div>
+        <div class:list={['td', 'muted', { last: i === ECOSYSTEM_SUMMARY.rows.length - 1 }]}>{row[2]}</div>
+      </>
+    ))}
   </div>
 </section>
 
 <style>
-  .platform {
-    padding: 120px 0;
+  .eco-header {
+    padding: 120px 0 60px;
   }
 
-  .muted-eyebrow {
+  .eyebrow {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     letter-spacing: 0.14em;
@@ -184,64 +170,82 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
     margin-bottom: 20px;
   }
 
-  h2 {
+  .eco-header h2 {
     font-family: var(--font-serif);
     font-weight: var(--font-medium);
-    font-size: clamp(28px, 3.4vw, 42px);
-    line-height: var(--leading-snug);
-    max-width: 14ch;
-    margin: 0 0 72px;
+    font-size: clamp(28px, 3.6vw, 46px);
+    line-height: 1.15;
+    margin: 0;
   }
 
   .product {
-    padding: 64px 0;
-    border-top: 1px solid var(--border-primary);
+    padding: 120px 0;
   }
 
-  .product:last-of-type {
+  .product.alt {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
     border-bottom: 1px solid var(--border-primary);
   }
 
-  .product-head {
-    display: flex;
-    align-items: baseline;
-    gap: 24px;
-    margin-bottom: 32px;
+  .product-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
   }
 
-  .index {
-    font-family: var(--font-mono);
-    font-size: var(--text-4xl);
+  .product-index,
+  .product-body {
+    min-width: 0;
+  }
+
+  .index-num {
+    font-family: var(--font-serif);
+    font-size: 56px;
     color: var(--border-strong);
     line-height: 1;
+    margin-bottom: 20px;
   }
 
-  .name {
-    font-family: var(--font-serif);
-    font-size: var(--text-2xl);
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-
-  .tag {
+  .index-tag {
     font-family: var(--font-mono);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     letter-spacing: 0.08em;
-    text-transform: uppercase;
     color: var(--accent);
   }
 
-  .purpose {
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-    max-width: 620px;
-    margin-bottom: 12px;
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(26px, 3vw, 38px);
+    margin: 0 0 8px;
+  }
+
+  h3 a {
+    transition: color var(--transition-fast);
+  }
+
+  h3 a:hover {
+    color: var(--accent);
+  }
+
+  .index-tag a {
+    transition: color var(--transition-fast);
   }
 
   .layer-label {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 28px;
+  }
+
+  .body-text {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 640px;
     margin-bottom: 32px;
   }
 
@@ -258,12 +262,10 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    max-width: 640px;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
   }
 
   .plain-list {
-    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -272,261 +274,238 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
   }
 
   .output-value {
-    font-family: var(--font-mono);
     font-size: var(--text-base);
     color: var(--accent);
   }
 
-  .analogy {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: var(--text-xl);
-    color: var(--text-primary);
-    margin-bottom: 32px;
-  }
-
-  .analogy-block {
-    margin-bottom: 32px;
-  }
-
-  .analogy-block .analogy {
-    margin-bottom: 4px;
-  }
-
   .example {
-    max-width: 640px;
-    margin-bottom: 32px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    padding: 32px;
+    margin-bottom: 28px;
   }
 
   .example-before {
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: var(--text-base);
+    font-size: var(--text-lg);
     color: var(--text-secondary);
+    margin-bottom: 20px;
   }
 
   .example-arrow {
     font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    margin: 16px 0;
+    font-size: var(--text-sm);
+    color: var(--accent);
+    margin-bottom: 20px;
   }
 
-  .example-after {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-primary);
-    padding: 20px 24px;
+  .example pre {
     margin: 0;
     overflow-x: auto;
   }
 
-  .example-after code {
+  .example code {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
-    line-height: 1.7;
-    color: var(--accent);
+    line-height: 1.8;
+    color: var(--text-secondary);
     white-space: pre;
   }
 
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  .analogy {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-lg);
+    color: var(--text-primary);
     margin-bottom: 32px;
-  }
-
-  .chip {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    color: var(--text-secondary);
-    border: 1px solid var(--border-primary);
-    padding: 6px 12px;
   }
 
   .version-chain {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    margin-bottom: 32px;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
     font-family: var(--font-mono);
     font-size: var(--text-sm);
+    margin-bottom: 40px;
   }
 
   .version-node {
-    color: var(--text-primary);
-    padding: 6px 0;
+    border: 1px solid var(--border-strong);
+    padding: 12px 18px;
+    color: var(--text-secondary);
   }
 
-  .version-arrow {
-    color: var(--text-muted);
+  .version-node.accent {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .chain-arrow {
+    color: var(--accent);
   }
 
   .questions {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 32px;
     font-size: var(--text-base);
     color: var(--text-secondary);
-    margin-bottom: 32px;
-  }
-
-  .questions li::before {
-    content: '— ';
-    color: var(--text-muted);
+    margin-bottom: 28px;
   }
 
   .guard-flow {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    max-width: 420px;
     margin-bottom: 32px;
   }
 
-  .flow-node {
+  .flow-box {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid var(--border-strong);
+    text-align: center;
+  }
+
+  .flow-box.accent {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .flow-arrow-label {
+    text-align: center;
+    width: 100%;
+    color: var(--accent);
+    padding: 10px 0;
     font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .analogy-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+    margin-bottom: 48px;
+  }
+
+  .analogy-cell {
+    background: var(--bg-primary);
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  .analogy-cell.accent {
+    background: color-mix(in oklch, var(--accent) 10%, var(--bg-primary));
+  }
+
+  .platform-name {
+    font-size: var(--text-sm);
+    margin-bottom: 8px;
+  }
+
+  .analogy-cell.accent .platform-name {
+    color: var(--accent);
+  }
+
+  .product-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  .analogy-cell.accent .product-name {
+    color: var(--accent);
+  }
+
+  .publisher-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     font-size: var(--text-base);
     color: var(--text-secondary);
-    padding: 10px 0;
-  }
-
-  .flow-node.accent {
-    color: var(--accent);
-    font-weight: var(--font-medium);
-  }
-
-  .flow-arrow {
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-  }
-
-  .answers {
-    font-family: var(--font-mono);
-    font-size: var(--text-base);
-    color: var(--text-primary);
-    margin-bottom: 32px;
-  }
-
-  .analogy-rows {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 32px;
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-  }
-
-  .analogy-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--text-tertiary);
-  }
-
-  .analogy-row.accent {
-    color: var(--accent);
-  }
-
-  .arrow-sep {
-    color: var(--text-muted);
-  }
-
-  .publisher-rows {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 32px;
-  }
-
-  .publisher-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 12px 0;
-    border-top: 1px solid var(--border-primary);
-    font-size: var(--text-sm);
-  }
-
-  .publisher {
-    color: var(--text-muted);
+    margin-bottom: 40px;
   }
 
   .artifact {
     color: var(--text-primary);
-    text-align: right;
   }
 
   .verbs {
     display: flex;
+    gap: 24px;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 32px;
-  }
-
-  .verb {
     font-family: var(--font-mono);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--accent);
-    border: 1px solid var(--accent-dim);
-    padding: 6px 12px;
+    margin-bottom: 28px;
   }
 
   .summary {
     font-family: var(--font-mono);
     font-size: var(--text-base);
-    color: var(--text-primary);
-    font-weight: var(--font-medium);
+    color: var(--accent);
+    margin: 0;
   }
 
-  .summary-table-wrap {
-    margin-top: 96px;
-    overflow-x: auto;
+  .eco-summary {
+    padding: 100px 0;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  .summary-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: var(--text-sm);
-  }
-
-  .summary-table th {
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.4fr;
     font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: var(--text-sm);
+    padding: 0 48px;
+  }
+
+  .th {
+    padding: 16px 0;
     color: var(--text-muted);
-    text-align: left;
-    padding: 0 16px 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: var(--text-xs);
     border-bottom: 1px solid var(--border-strong);
   }
 
-  .summary-table td {
-    padding: 16px 16px 16px 0;
-    border-bottom: 1px solid var(--border-primary);
+  .td {
+    padding: 18px 0;
     color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-primary);
   }
 
-  .summary-table .layer-cell {
-    font-family: var(--font-mono);
+  .td.last {
+    border-bottom: none;
+  }
+
+  .td.accent {
     color: var(--accent);
   }
 
-  @media (max-width: 700px) {
-    .io-grid {
+  @media (max-width: 760px) {
+    .product-grid {
       grid-template-columns: 1fr;
       gap: 24px;
     }
-    .publisher-row {
-      flex-direction: column;
-      gap: 4px;
+    .io-grid,
+    .questions {
+      grid-template-columns: 1fr;
     }
-    .artifact {
-      text-align: left;
+    .analogy-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .summary-grid {
+      padding: 0 24px;
+      font-size: 12px;
     }
   }
 </style>

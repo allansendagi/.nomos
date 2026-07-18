@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { GUARD } from '../content/copy';
+---
+
+<BaseLayout title="NOMOS Guard — Execute Authority" description={GUARD.body}>
+  <section class="hero">
+    <div class="inner">
+      <p class="eyebrow">{GUARD.index} — {GUARD.tag}</p>
+      <h1>{GUARD.title}</h1>
+      <p class="dek">{GUARD.layerLabel}</p>
+      <p class="body-text">{GUARD.body}</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="inner">
+      <div class="guard-flow">
+        <div class="flow-box">{GUARD.flowBoxes[0]}</div>
+        <div class="flow-arrow-label">{GUARD.flowLabels[0]} ↓</div>
+        <div class="flow-box accent">{GUARD.flowBoxes[1]}</div>
+        <div class="flow-arrow-label">{GUARD.flowLabels[1]} ↓</div>
+        <div class="flow-box">{GUARD.flowBoxes[2]}</div>
+      </div>
+
+      <div class="mcp-panel">
+        <p class="col-label">{GUARD.mcpDetail.label}</p>
+        <p class="mcp-body">{GUARD.mcpDetail.body}</p>
+        <div class="install-row">
+          <code class="install-cmd">{GUARD.mcpDetail.install}</code>
+          <p class="install-note">{GUARD.mcpDetail.installNote}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <p class="quote">{GUARD.summary}</p>
+    <a class="back" href="/#platform">← Back to the ecosystem</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 160px 48px 80px;
+    text-align: center;
+  }
+
+  .hero .inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(40px, 5.6vw, 68px);
+    line-height: 1.1;
+    margin: 0 0 16px;
+  }
+
+  .dek {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 24px;
+  }
+
+  .body-text {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .content {
+    padding: 0 48px 120px;
+  }
+
+  .content .inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .guard-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 420px;
+    margin: 0 auto 64px;
+  }
+
+  .flow-box {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid var(--border-strong);
+    text-align: center;
+  }
+
+  .flow-box.accent {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .flow-arrow-label {
+    text-align: center;
+    width: 100%;
+    color: var(--accent);
+    padding: 10px 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .col-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .mcp-panel {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-primary);
+    padding: 32px;
+  }
+
+  .mcp-body {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 28px;
+  }
+
+  .install-row {
+    border-top: 1px solid var(--border-primary);
+    padding-top: 24px;
+  }
+
+  .install-cmd {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    color: var(--accent);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    padding: 10px 16px;
+    margin-bottom: 12px;
+  }
+
+  .install-note {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .quote-section {
+    padding: 120px 48px;
+    text-align: center;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .quote {
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+    color: var(--accent);
+    margin: 0 0 32px;
+  }
+
+  .back {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .back:hover {
+    color: var(--accent);
+  }
+</style>

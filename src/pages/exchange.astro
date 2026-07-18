@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { EXCHANGE } from '../content/copy';
+---
+
+<BaseLayout title="NOMOS Exchange — Discover and Exchange Authority" description={EXCHANGE.layerLabel}>
+  <section class="hero">
+    <div class="inner">
+      <p class="eyebrow">{EXCHANGE.index} — {EXCHANGE.tag}</p>
+      <h1>{EXCHANGE.title}</h1>
+      <p class="dek">{EXCHANGE.layerLabel}</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="inner">
+      <div class="analogy-grid">
+        {EXCHANGE.analogyList.map((row) => (
+          <div class:list={['analogy-cell', { accent: row.accent }]}>
+            <div class="platform-name">{row.platform}</div>
+            <div class="product-name">{row.product}</div>
+          </div>
+        ))}
+      </div>
+
+      <p class="col-label">Already publishing</p>
+      <div class="publisher-list">
+        {EXCHANGE.publisherExamples.map((row) => (
+          <div>
+            {row.publisher} — <span class="artifact">{row.artifact}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="verbs">
+        {EXCHANGE.verbs.map((v) => <span>{v}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <p class="quote">{EXCHANGE.summary}</p>
+    <a class="back" href="/#platform">← Back to the ecosystem</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 160px 48px 80px;
+    text-align: center;
+  }
+
+  .hero .inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(36px, 5.2vw, 60px);
+    line-height: 1.1;
+    margin: 0 0 16px;
+  }
+
+  .dek {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0;
+  }
+
+  .content {
+    padding: 0 48px 120px;
+  }
+
+  .content .inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .analogy-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+    margin-bottom: 56px;
+  }
+
+  .analogy-cell {
+    background: var(--bg-primary);
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  .analogy-cell.accent {
+    background: color-mix(in oklch, var(--accent) 10%, var(--bg-primary));
+  }
+
+  .platform-name {
+    font-size: var(--text-sm);
+    margin-bottom: 8px;
+  }
+
+  .analogy-cell.accent .platform-name {
+    color: var(--accent);
+  }
+
+  .product-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  .analogy-cell.accent .product-name {
+    color: var(--accent);
+  }
+
+  .col-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .publisher-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+  }
+
+  .artifact {
+    color: var(--text-primary);
+  }
+
+  .verbs {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+
+  .quote-section {
+    padding: 120px 48px;
+    text-align: center;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .quote {
+    font-family: var(--font-mono);
+    font-size: var(--text-xl);
+    color: var(--accent);
+    margin: 0 0 32px;
+  }
+
+  .back {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .back:hover {
+    color: var(--accent);
+  }
+
+  @media (max-width: 700px) {
+    .analogy-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

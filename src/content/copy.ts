@@ -124,19 +124,19 @@ export const AUTHORITY_STACK = {
 };
 
 export const PLATFORM = {
+  number: '05',
   eyebrow: 'THE ECOSYSTEM',
   headline: 'One protocol. Multiple layers.',
 };
 
 export const STUDIO = {
-  index: '1',
-  name: 'NOMOS Studio',
-  tag: 'Create Authority',
-  purpose: 'Transform institutional intent into a .nomos artifact.',
-  layerLabel: 'The creation layer.',
+  index: '01',
+  tag: 'NOMOS STUDIO',
+  title: 'Create Authority',
+  layerLabel: 'The creation layer',
+  body: 'Transform institutional intent into a .nomos artifact. Studio is like a compiler for authority.',
   input: ['Policies', 'Regulations', 'Contracts', 'Procedures', 'Institutional logic'],
   output: 'Signed .nomos artifact',
-  analogy: 'Studio is like a compiler for authority.',
   exampleBefore: '"Employees may approve refunds up to $10,000 after manager review."',
   exampleAfter: `{
   authority: "Company Finance Policy",
@@ -148,35 +148,39 @@ export const STUDIO = {
 };
 
 export const REGISTRY = {
-  index: '2',
-  name: 'NOMOS Registry',
-  tag: 'Govern Authority',
-  purpose: 'The system of record for authority.',
-  layerLabel: 'The institutional control plane.',
-  handles: ['Versioning', 'Approval workflows', 'Assignments', 'Distribution', 'Audit history', 'Lifecycle management'],
-  analogy: ['GitHub manages code versions.', 'Registry manages authority versions.'],
+  index: '02',
+  tag: 'NOMOS REGISTRY',
+  title: 'Govern Authority',
+  layerLabel: 'The institutional control plane',
+  body: 'The system of record for authority. Versioning, approval workflows, assignments, distribution, audit history, lifecycle management.',
+  analogy: 'GitHub manages code versions. Registry manages authority versions.',
   versionChain: ['Policy v1.0', 'Policy v1.1', 'Policy v2.0'],
-  questions: ['Which authority is currently active?', 'Who approved it?', 'Who can use it?', 'What changed?'],
+  questions: ['Which authority is currently active?', 'Who can use it?', 'Who approved it?', 'What changed?'],
   summary: 'Registry = govern authority',
 };
 
 export const GUARD = {
-  index: '3',
-  name: 'NOMOS Runtime / Guard',
-  tag: 'Execute Authority',
-  layerLabel: 'The missing layer.',
-  context: 'The agent era creates this requirement.',
-  flow: ['Agent', '"Can I do this?"', 'NOMOS Guard', '.nomos verification', 'Tool execution'],
-  sitsBetween: 'Guard sits between an autonomous system and action.',
-  answers: '"Is this action permitted by a valid authority artifact?"',
+  index: '03',
+  tag: 'NOMOS RUNTIME / GUARD',
+  title: 'Execute Authority',
+  layerLabel: 'The missing layer — the agent era creates this requirement',
+  body: 'Guard sits between an autonomous system and action: is this action permitted by a valid authority artifact?',
+  flowBoxes: ['Agent', 'NOMOS Guard', 'Tool execution'],
+  flowLabels: ['"Can I do this?"', '.nomos verification'],
   summary: 'Guard = enforce authority',
+  mcpDetail: {
+    label: 'How it actually works',
+    body: 'Guard is an MCP (Model Context Protocol) integration. It sits in front of an agent\'s MCP tool calls and checks each one against a sealed .nomos artifact before the call is allowed to execute — not a generic policy engine, a specific enforcement point in the MCP tool-call path.',
+    install: 'npx nomos-guard',
+    installNote: 'Put a sealed policy in front of an MCP tool call in under a minute. No account, no setup.',
+  },
 };
 
 export const EXCHANGE = {
-  index: '4',
-  name: 'NOMOS Exchange',
-  tag: 'Discover and Exchange Authority',
-  intro: 'Exchange is not just a marketplace. It is the network layer.',
+  index: '04',
+  tag: 'NOMOS EXCHANGE',
+  title: 'Discover and Exchange Authority',
+  layerLabel: 'The network layer, not just a marketplace',
   analogyList: [
     { platform: 'AWS Marketplace', product: 'software capabilities', accent: false },
     { platform: 'App Store', product: 'applications', accent: false },
