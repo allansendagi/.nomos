@@ -192,6 +192,37 @@ export const GUARD = {
     install: 'npx nomos-guard',
     installNote: 'Put a sealed policy in front of an MCP tool call in under a minute. No account, no setup.',
   },
+  paths: {
+    label: 'Two ways to govern',
+    direct: {
+      name: 'Path 1 — Direct integration',
+      body: 'Your agent calls NOMOS explicitly, through three tools: verify a decision against a sealed artifact, turn a policy document into one, or audit a policy for contradictions before you seal it.',
+      tools: ['verify_decision', 'generate_governance', 'detect_contradictions'],
+    },
+    gateway: {
+      name: 'Path 2 — NOMOS Guard (the gateway)',
+      body: 'Wrap an MCP server you already run — GitHub, Postgres, Stripe, any of them — with zero code changes to the server itself. Guard sits in the execution path and checks every tool call before it reaches the real system.',
+      examples: [
+        'GitHub MCP — block force-pushes to main, gate repo deletion',
+        'Postgres MCP — deny destructive queries against production',
+        'Stripe MCP — escalate refunds above your approval threshold',
+      ],
+      wrapCommand: 'npx nomos-guard \\\n  --artifact pub_database_policy \\\n  -- postgres-mcp-server',
+    },
+  },
+  transcript: {
+    label: 'An unrestricted agent, governed',
+    lines: [
+      { who: 'agent', text: 'Clean up the old customer records — drop the table.' },
+      { who: 'call', text: 'DROP TABLE customers;' },
+      { who: 'guard', text: 'checking pub_database_policy…' },
+      { who: 'verdict', text: 'DENIED by governance policy' },
+      { who: 'rule', text: 'Rule R1 — Production data destruction is prohibited without dual approval.' },
+      { who: 'hash', text: 'Audit hash: sha256:8f3a2c1e9d04b7f6…' },
+      { who: 'agent', text: "Understood — I can't perform that action. Escalating to your team instead." },
+    ],
+    note: 'Illustrative — MCP servers run over stdio, not a browser session, so this is a recorded transcript rather than a live call.',
+  },
 };
 
 export const EXCHANGE = {

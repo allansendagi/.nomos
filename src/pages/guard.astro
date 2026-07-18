@@ -31,6 +31,38 @@ import { GUARD } from '../content/copy';
           <p class="install-note">{GUARD.mcpDetail.installNote}</p>
         </div>
       </div>
+
+      <p class="col-label section-label">{GUARD.paths.label}</p>
+
+      <div class="path-block">
+        <p class="path-name">{GUARD.paths.direct.name}</p>
+        <p class="path-body">{GUARD.paths.direct.body}</p>
+        <div class="tool-chips">
+          {GUARD.paths.direct.tools.map((t) => <code class="tool-chip">{t}</code>)}
+        </div>
+      </div>
+
+      <div class="path-block accent">
+        <p class="path-name accent">{GUARD.paths.gateway.name}</p>
+        <p class="path-body">{GUARD.paths.gateway.body}</p>
+        <ul class="examples-list">
+          {GUARD.paths.gateway.examples.map((ex) => <li>{ex}</li>)}
+        </ul>
+        <pre class="wrap-command"><code>{GUARD.paths.gateway.wrapCommand}</code></pre>
+      </div>
+
+      <div class="transcript-panel">
+        <p class="col-label">{GUARD.transcript.label}</p>
+        <div class="transcript">
+          {GUARD.transcript.lines.map((line) => (
+            <p class:list={['t-line', `t-${line.who}`]}>
+              {line.who === 'agent' && <span class="t-prefix">Agent:</span>}
+              {line.text}
+            </p>
+          ))}
+        </div>
+        <p class="transcript-note">{GUARD.transcript.note}</p>
+      </div>
     </div>
   </section>
 
@@ -162,6 +194,134 @@ import { GUARD } from '../content/copy';
 
   .install-note {
     font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .section-label {
+    margin-top: 64px;
+  }
+
+  .path-block {
+    border: 1px solid var(--border-primary);
+    padding: 28px 32px;
+    margin-bottom: 1px;
+  }
+
+  .path-block.accent {
+    border-color: var(--accent-dim);
+    background: color-mix(in oklch, var(--accent) 6%, var(--bg-primary));
+  }
+
+  .path-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  .path-name.accent {
+    color: var(--accent);
+  }
+
+  .path-body {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 20px;
+  }
+
+  .tool-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tool-chip {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--accent);
+    border: 1px solid var(--border-primary);
+    padding: 6px 12px;
+  }
+
+  .examples-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin: 0 0 24px;
+    padding: 0;
+  }
+
+  .examples-list li::before {
+    content: '— ';
+    color: var(--text-muted);
+  }
+
+  .wrap-command {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-primary);
+    padding: 16px 20px;
+    margin: 0;
+    overflow-x: auto;
+  }
+
+  .wrap-command code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--accent);
+    white-space: pre;
+  }
+
+  .transcript-panel {
+    margin-top: 64px;
+  }
+
+  .transcript {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-primary);
+    padding: 24px 28px;
+    margin-bottom: 16px;
+  }
+
+  .t-line {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: 1.8;
+    margin: 0 0 4px;
+    color: var(--text-secondary);
+  }
+
+  .t-prefix {
+    color: var(--text-muted);
+    margin-right: 6px;
+  }
+
+  .t-call {
+    color: var(--text-primary);
+  }
+
+  .t-guard {
+    color: var(--text-muted);
+  }
+
+  .t-verdict {
+    color: oklch(0.65 0.2 25);
+    font-weight: var(--font-medium);
+  }
+
+  .t-rule,
+  .t-hash {
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+  }
+
+  .transcript-note {
+    font-size: var(--text-xs);
     color: var(--text-muted);
     margin: 0;
   }
