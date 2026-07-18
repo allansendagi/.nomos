@@ -6,7 +6,9 @@ import { HERO } from '../content/copy';
   <div class="inner">
     <p class="eyebrow-line">{HERO.eyebrow}</p>
     <h1>{HERO.headline}</h1>
-    <p class="body">{HERO.body}</p>
+    {HERO.body.map((p) => (
+      <p class="body">{p}</p>
+    ))}
   </div>
   <div class="scroll">
     <span class="scroll-line" aria-hidden="true"></span>
@@ -32,9 +34,10 @@ import { HERO } from '../content/copy';
   .eyebrow-line {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
-    letter-spacing: 0.14em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--accent);
+    white-space: nowrap;
     margin-bottom: 28px;
   }
 
@@ -53,7 +56,11 @@ import { HERO } from '../content/copy';
     line-height: var(--leading-relaxed);
     max-width: 640px;
     color: var(--text-secondary);
-    margin: 0;
+    margin: 0 0 12px;
+  }
+
+  .body:last-child {
+    margin-bottom: 0;
   }
 
   .scroll {
@@ -78,6 +85,11 @@ import { HERO } from '../content/copy';
     .hero {
       padding: 0 24px;
       min-height: 80vh;
+    }
+
+    .eyebrow-line {
+      white-space: normal;
+      font-size: 11px;
     }
   }
 </style>

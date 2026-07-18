@@ -18,9 +18,13 @@ export const NAV_LINKS = [
 ];
 
 export const HERO = {
-  eyebrow: '.NOMOS',
-  headline: 'The protocol for computable authority.',
-  body: 'For centuries, authority lived in documents, procedures, and human interpretation. Execution is becoming computational. Authority must become computable too.',
+  eyebrow: '.NOMOS — The protocol for computable authority.',
+  headline: 'The next era of civilization requires computable authority.',
+  body: [
+    'For centuries, authority lived in documents, procedures, and human interpretation.',
+    'Execution is becoming computational.',
+    'Authority must become computable too.',
+  ],
 };
 
 export const PROBLEM = {
