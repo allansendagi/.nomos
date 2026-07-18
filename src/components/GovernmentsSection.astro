@@ -1,0 +1,70 @@
+---
+import { AUDIENCES } from '../content/copy';
+
+const gov = AUDIENCES.governments;
+---
+
+<section id={gov.id} class="governments">
+  <div class="container">
+    <p class="muted-eyebrow">{gov.eyebrow}</p>
+    <h2>{gov.headline}</h2>
+    <div class="two-col">
+      <p class="body">{gov.body}</p>
+      <div class="list">
+        {gov.list.map((item) => (
+          <div>{item}</div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .governments {
+    padding: 100px 0;
+  }
+
+  .muted-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(26px, 3.2vw, 40px);
+    line-height: 1.15;
+    max-width: 18ch;
+    margin: 0 0 32px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+  }
+
+  .body {
+    font-size: 18px;
+    color: var(--text-secondary);
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 16px;
+    border-left: 2px solid var(--border-strong);
+    padding-left: 22px;
+  }
+
+  @media (max-width: 700px) {
+    .two-col {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

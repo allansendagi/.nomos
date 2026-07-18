@@ -1,0 +1,136 @@
+---
+import { WHY_NOW } from '../content/copy';
+---
+
+<section class="why-now">
+  <div class="container">
+    <p class="eyebrow">{WHY_NOW.number} — {WHY_NOW.eyebrow}</p>
+    <h2>{WHY_NOW.headline}</h2>
+
+    <div class="rows">
+      {WHY_NOW.rows.map((row, i) => (
+        <div class:list={['row', { accent: row.accent, last: i === WHY_NOW.rows.length - 1 }]}>
+          <div class:list={['name', { accent: row.accent }]}>{row.name}</div>
+          <div class:list={['note', { accent: row.accent }]}>{row.note}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="digitized">
+      <p class="digitized-lead">{WHY_NOW.digitizedLead}</p>
+      <div class="digitized-list">
+        {WHY_NOW.digitized.map((item) => (
+          <span>{item}</span>
+        ))}
+      </div>
+      <p class="digitized-gap">{WHY_NOW.digitizedGap}</p>
+      <p class="digitized-close">{WHY_NOW.digitizedClose}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-now {
+    padding: 140px 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: var(--leading-snug);
+    max-width: 18ch;
+    margin: 0 0 64px;
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 22px 0;
+    border-top: 1px solid var(--border-primary);
+    gap: var(--space-6);
+  }
+
+  .row.last {
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .name {
+    font-size: 19px;
+  }
+
+  .name.accent {
+    color: var(--accent);
+  }
+
+  .note {
+    color: var(--text-tertiary);
+    font-size: var(--text-base);
+    max-width: 420px;
+    text-align: right;
+  }
+
+  .note.accent {
+    color: var(--text-primary);
+  }
+
+  .digitized {
+    margin-top: 96px;
+    padding-top: 64px;
+    border-top: 1px solid var(--border-strong);
+    text-align: center;
+  }
+
+  .digitized-lead {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .digitized-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    font-family: var(--font-serif);
+    font-size: clamp(22px, 3vw, 32px);
+    color: var(--text-primary);
+    margin-bottom: 40px;
+  }
+
+  .digitized-gap {
+    font-size: var(--text-lg);
+    color: var(--text-tertiary);
+    margin-bottom: 16px;
+  }
+
+  .digitized-close {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-2xl);
+    color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-2);
+    }
+    .note {
+      text-align: left;
+    }
+  }
+</style>

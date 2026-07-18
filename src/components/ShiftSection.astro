@@ -1,0 +1,136 @@
+---
+import { SHIFT } from '../content/copy';
+---
+
+<section class="shift">
+  <div class="container">
+    <p class="eyebrow">{SHIFT.number} — {SHIFT.eyebrow}</p>
+    <h2>{SHIFT.headline}</h2>
+
+    <div class="two-col">
+      <div>
+        <p class="col-label">{SHIFT.produces.label}</p>
+        <div class="produces">
+          {SHIFT.produces.items.map((item) => (
+            <div>{item}</div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="col-label">{SHIFT.cannotKnow.label}</p>
+        <div class="cannot-know">
+          {SHIFT.cannotKnow.items.map((item) => (
+            <div>{item}</div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="comparison">
+      {SHIFT.comparison.map((c) => (
+        <div class:list={['card', { accent: c.accent }]}>
+          <p class="card-label">{c.label}</p>
+          <p class="card-question">{c.question}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="closer">{SHIFT.closer}</p>
+  </div>
+</section>
+
+<style>
+  .shift {
+    padding: 140px 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: var(--leading-snug);
+    max-width: 14ch;
+    margin: 0 0 56px;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 64px;
+  }
+
+  .col-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  .produces {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+  }
+
+  .cannot-know {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 19px;
+    color: var(--text-secondary);
+  }
+
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    border-left: 2px solid var(--border-strong);
+    padding-left: 24px;
+  }
+
+  .card.accent {
+    border-left-color: var(--accent);
+  }
+
+  .card-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .card.accent .card-label {
+    color: var(--accent);
+  }
+
+  .card-question {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+  }
+
+  .closer {
+    font-size: 19px;
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 700px) {
+    .two-col,
+    .comparison {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

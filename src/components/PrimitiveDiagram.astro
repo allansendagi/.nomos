@@ -1,0 +1,189 @@
+---
+import { PRIMITIVE } from '../content/copy';
+---
+
+<section id="primitive" class="primitive">
+  <div class="container">
+    <p class="eyebrow">{PRIMITIVE.number} — {PRIMITIVE.eyebrow}</p>
+    <h2>{PRIMITIVE.headline}</h2>
+    <p class="dek">{PRIMITIVE.dek}</p>
+
+    <div class="diagram">
+      {PRIMITIVE.nodes.map((node, i) => (
+        <>
+          <div class:list={['node', { accent: i === 1 }]}>{node}</div>
+          {i < PRIMITIVE.nodes.length - 1 && <div class="arrow" aria-hidden="true">→</div>}
+        </>
+      ))}
+    </div>
+
+    <p class="col-label center">{PRIMITIVE.containsLabel}</p>
+    <div class="stack-wrap">
+      <div class="stack">
+        <p class="stack-label">.nomos</p>
+        {PRIMITIVE.stack.map((row) => (
+          <div class="stack-row">
+            <span class="row-name">{row.name}</span>
+            <span class="row-desc">{row.desc}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <p class="pullquote">{PRIMITIVE.pullquote}</p>
+
+    <a class="spec-link" href={PRIMITIVE.specLink.href}>{PRIMITIVE.specLink.label} →</a>
+  </div>
+</section>
+
+<style>
+  .primitive {
+    padding: 200px 0 180px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    text-align: center;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(38px, 5.4vw, 68px);
+    line-height: var(--leading-snug);
+    max-width: 14ch;
+    margin: 0 auto 20px;
+  }
+
+  .dek {
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    letter-spacing: 0.02em;
+    color: var(--text-tertiary);
+    margin: 0 auto 72px;
+  }
+
+  .diagram {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 72px;
+  }
+
+  .node {
+    flex: 1;
+    border: 1px solid var(--border-strong);
+    padding: 28px 24px;
+    text-align: center;
+    font-size: var(--text-base);
+  }
+
+  .node.accent {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .arrow {
+    text-align: center;
+    padding: 0 16px;
+    color: var(--accent);
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .col-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .col-label.center {
+    text-align: center;
+  }
+
+  .stack-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 56px;
+  }
+
+  .stack {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+  }
+
+  .stack-label {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-xl);
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .stack-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    padding: 16px 20px;
+    border: 1px solid var(--border-strong);
+    border-top: none;
+  }
+
+  .stack-row:first-of-type {
+    border-top: 1px solid var(--border-strong);
+  }
+
+  .row-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.06em;
+    color: var(--text-primary);
+  }
+
+  .row-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  .pullquote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-3xl);
+    line-height: 1.4;
+    color: var(--text-primary);
+    margin: 0 auto 32px;
+    text-align: center;
+    max-width: 560px;
+  }
+
+  .spec-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    width: fit-content;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  @media (max-width: 760px) {
+    .diagram {
+      flex-direction: column;
+    }
+    .arrow {
+      transform: rotate(90deg);
+      padding: 12px 0;
+    }
+  }
+</style>

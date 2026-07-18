@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const steps = [
+  {
+    name: 'Upload',
+    desc: 'Bring a policy document, regulation, or institutional procedure into NOMOS Studio.',
+  },
+  {
+    name: 'Extract',
+    desc: 'Rules, conditions, and constraints are extracted and checked for contradictions.',
+  },
+  {
+    name: 'Seal',
+    desc: 'The artifact is cryptographically sealed with Ed25519 — tamper-evident, independently verifiable.',
+  },
+  {
+    name: 'Verify',
+    desc: 'Every decision made against the artifact returns a verdict and an audit hash.',
+  },
+];
+---
+
+<BaseLayout title="Console — NOMOS" description="How a policy becomes a verifiable NOMOS artifact.">
+  <section class="console">
+    <div class="container">
+      <p class="eyebrow">CONSOLE</p>
+      <h1>From policy document to verifiable artifact.</h1>
+      <p class="lede">
+        NOMOS Studio is where institutional authority is compiled into a sealed, executable
+        artifact. This is the same pipeline used to build the pilot artifacts referenced
+        throughout this site.
+      </p>
+
+      <div class="steps">
+        {steps.map((s, i) => (
+          <div class="step">
+            <span class="index">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <p class="name">{s.name}</p>
+              <p class="desc">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="cta-block">
+        <p class="cta-lede">Want to see it run against a real policy?</p>
+        <a class="cta" href="/contact">Request a console walkthrough →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .console {
+    padding: var(--space-20) 0 var(--space-24);
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(34px, 4.6vw, 58px);
+    line-height: var(--leading-tight);
+    margin: 0 0 var(--space-6);
+    max-width: 14ch;
+  }
+
+  .lede {
+    font-size: 19px;
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin-bottom: var(--space-16);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    max-width: 640px;
+    margin-bottom: var(--space-16);
+  }
+
+  .step {
+    display: flex;
+    gap: var(--space-6);
+    padding: var(--space-6) 0;
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .step:last-child {
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .index {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--accent);
+    flex-shrink: 0;
+    padding-top: var(--space-1);
+  }
+
+  .name {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+  }
+
+  .desc {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .cta-block {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .cta-lede {
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+  }
+
+  .cta {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    color: var(--bg-primary);
+    background: var(--text-primary);
+    padding: var(--space-3) var(--space-6);
+    transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .cta:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+  }
+</style>

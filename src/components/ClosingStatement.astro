@@ -1,0 +1,67 @@
+---
+import { CLOSING } from '../content/copy';
+---
+
+<section class="closing">
+  <div class="inner">
+    <div class="beats">
+      {CLOSING.beats.map((line, i) => (
+        <p class:list={['beat', { last: i === CLOSING.beats.length - 1 }]}>{line}</p>
+      ))}
+    </div>
+    <h2>{CLOSING.headline}</h2>
+    <p class="timeline">{CLOSING.timeline}</p>
+    <p class="tagline">{CLOSING.tagline}</p>
+  </div>
+</section>
+
+<style>
+  .closing {
+    padding: 160px 48px;
+    text-align: center;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .beats {
+    margin-bottom: 64px;
+  }
+
+  .beat {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 2.4vw, 28px);
+    line-height: 1.5;
+    color: var(--text-tertiary);
+  }
+
+  .beat.last {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(30px, 4.2vw, 52px);
+    line-height: 1.2;
+    margin: 0 0 48px;
+  }
+
+  .timeline {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+
+  .tagline {
+    font-size: var(--text-lg);
+    color: var(--accent);
+  }
+</style>

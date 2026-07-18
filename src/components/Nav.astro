@@ -1,0 +1,180 @@
+---
+import { NAV_LINKS } from '../content/copy';
+---
+
+<header class="nav">
+  <a class="brand" href="/" aria-label="NOMOS home">
+    <span class="wordmark">.nomos</span>
+  </a>
+
+  <nav class="links" aria-label="Primary">
+    {NAV_LINKS.map((link) => (
+      <a href={link.href} class:list={{ accent: link.accent }}>{link.label}</a>
+    ))}
+  </nav>
+
+  <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden>
+  {NAV_LINKS.map((link) => (
+    <a href={link.href} class:list={{ accent: link.accent }}>{link.label}</a>
+  ))}
+</nav>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.hidden;
+    if (menu) menu.hidden = isOpen;
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.classList.toggle('open', !isOpen);
+  });
+
+  menu?.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      if (menu) menu.hidden = true;
+      toggle?.setAttribute('aria-expanded', 'false');
+      toggle?.classList.remove('open');
+    });
+  });
+</script>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 48px;
+    background: var(--overlay);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .wordmark {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    letter-spacing: 0.01em;
+    color: var(--text-primary);
+  }
+
+  .links {
+    display: flex;
+    gap: var(--space-8);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .links a {
+    color: var(--text-tertiary);
+    transition: color var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .links a:hover {
+    color: var(--accent);
+  }
+
+  .links a.accent {
+    color: var(--accent);
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .menu-toggle .bar {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--text-secondary);
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
+
+  .menu-toggle.open .bar:first-child {
+    transform: translateY(3px) rotate(45deg);
+  }
+
+  .menu-toggle.open .bar:last-child {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 860px) {
+    .nav {
+      padding: 16px 24px;
+    }
+
+    .links {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .mobile-menu[hidden] {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 65px;
+      z-index: 19;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-primary);
+      padding: 8px 24px 20px;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-primary);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a.accent {
+      color: var(--accent);
+    }
+  }
+
+</style>

@@ -1,0 +1,102 @@
+---
+import { AUDIENCES } from '../content/copy';
+
+const ent = AUDIENCES.enterprises;
+---
+
+<section id={ent.id} class="enterprises">
+  <div class="container">
+    <p class="muted-eyebrow">{ent.eyebrow}</p>
+    <h2>{ent.headline}</h2>
+
+    <div class="flow">
+      <div class="row today">
+        <span class="row-label">Today</span>
+        {ent.flow.today.map((step, i) => (
+          <>
+            <span>{step}</span>
+            {i < ent.flow.today.length - 1 && <span class="arrow">→</span>}
+          </>
+        ))}
+      </div>
+      <div class="row tomorrow">
+        <span class="row-label">Tomorrow</span>
+        {ent.flow.tomorrow.map((step, i) => (
+          <>
+            <span>{step}</span>
+            {i < ent.flow.tomorrow.length - 1 && <span class="arrow accent">→</span>}
+          </>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .enterprises {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .muted-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(26px, 3.2vw, 40px);
+    line-height: 1.15;
+    max-width: 18ch;
+    margin: 0 0 40px;
+  }
+
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-family: var(--font-mono);
+    font-size: 16px;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .row.today {
+    color: var(--text-muted);
+  }
+
+  .row.tomorrow {
+    color: var(--text-primary);
+  }
+
+  .row-label {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    width: 80px;
+  }
+
+  .row.tomorrow .row-label {
+    color: var(--accent);
+  }
+
+  .arrow {
+    color: var(--border-strong);
+  }
+
+  .arrow.accent {
+    color: var(--accent);
+  }
+</style>

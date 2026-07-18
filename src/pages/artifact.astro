@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ARTIFACT_PAGE } from '../content/copy';
+---
+
+<BaseLayout
+  title="The .nomos Artifact — NOMOS"
+  description="A portable, cryptographically sealed representation of institutional intent."
+>
+  <section class="hero">
+    <div class="inner">
+      <p class="eyebrow">{ARTIFACT_PAGE.eyebrow}</p>
+      <h1>{ARTIFACT_PAGE.headline}</h1>
+      <p class="dek">{ARTIFACT_PAGE.dek}</p>
+    </div>
+  </section>
+
+  <section class="artifact-block">
+    <div class="inner">
+      <div class="code-panel">
+        <div class="code-head">
+          <span class="filename">{ARTIFACT_PAGE.filename}</span>
+          <span class="sealed">{ARTIFACT_PAGE.sealedLabel}</span>
+        </div>
+        <pre><code>{'{'}
+  <span class="key">"authority"</span>: <span class="str">"KHDA"</span>,
+  <span class="key">"version"</span>: <span class="str">"2.1.0"</span>,
+  <span class="key">"issuedBy"</span>: <span class="str">"Knowledge &amp; Human Development Authority"</span>,
+  <span class="key">"rules"</span>: [<span class="str">"treatment.requiresLicense"</span>, <span class="str">"amount.max=50000"</span>],
+  <span class="key">"conditions"</span>: {'{'} <span class="key">"region"</span>: <span class="str">"UAE"</span>, <span class="key">"validUntil"</span>: <span class="str">"2027-01-01"</span> {'}'},
+  <span class="key">"provenance"</span>: {'{'} <span class="key">"issuer"</span>: <span class="str">"KHDA"</span>, <span class="key">"timestamp"</span>: <span class="str">"2026-01-14T00:00:00Z"</span> {'}'},
+  <span class="key">"signature"</span>: <span class="str">"3f9ab7c2e4d1f0a89be6c5d3a12ef9e21c"</span>
+{'}'}</code></pre>
+      </div>
+      <div class="try-link">
+        <a href="/#verify">{ARTIFACT_PAGE.tryVerifyingLabel} →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="field-ref">
+    <div class="inner">
+      <p class="eyebrow">{ARTIFACT_PAGE.fieldRefEyebrow}</p>
+      <h2>{ARTIFACT_PAGE.fieldRefHeadline}</h2>
+
+      <div class="fields">
+        {ARTIFACT_PAGE.fields.map((f) => (
+          <div class="field">
+            <div class="field-name">{f.name}</div>
+            <div class="field-desc">{f.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <p class="quote">{ARTIFACT_PAGE.closingQuote}</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .hero {
+    padding: 160px 48px 100px;
+    text-align: center;
+  }
+
+  .hero .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .hero .eyebrow {
+    text-align: center;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(42px, 6vw, 80px);
+    line-height: 1.05;
+    margin: 0 0 32px;
+  }
+
+  .dek {
+    font-size: 20px;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .artifact-block {
+    padding: 0 48px 140px;
+  }
+
+  .artifact-block .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .code-panel {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-primary);
+    overflow: hidden;
+  }
+
+  .code-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .filename {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .sealed {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+
+  pre {
+    margin: 0;
+    padding: 32px;
+    overflow-x: auto;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: 1.9;
+    color: var(--text-secondary);
+    white-space: pre;
+  }
+
+  code :global(.key) {
+    color: var(--accent);
+  }
+
+  code :global(.str) {
+    color: oklch(0.75 0.14 145);
+  }
+
+  .try-link {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .try-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  .field-ref {
+    padding: 0 48px 160px;
+  }
+
+  .field-ref .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .field-ref h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(28px, 3.4vw, 42px);
+    margin: 0 0 56px;
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 28px 0;
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .field:last-child {
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .field-name {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--accent);
+  }
+
+  .field-desc {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+  }
+
+  .quote-section {
+    padding: 140px 48px;
+    text-align: center;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(24px, 3vw, 34px);
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 700px) {
+    .field {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>

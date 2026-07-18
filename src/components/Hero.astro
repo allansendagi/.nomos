@@ -1,0 +1,83 @@
+---
+import { HERO } from '../content/copy';
+---
+
+<section class="hero">
+  <div class="inner">
+    <p class="eyebrow-line">{HERO.eyebrow}</p>
+    <h1>{HERO.headline}</h1>
+    <p class="body">{HERO.body}</p>
+  </div>
+  <div class="scroll">
+    <span class="scroll-line" aria-hidden="true"></span>
+    Scroll
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 48px;
+    max-width: var(--max-content);
+    margin: 0 auto;
+  }
+
+  .inner {
+    animation: fadeUp 1s ease-out both;
+  }
+
+  .eyebrow-line {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(44px, 6vw, 88px);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    max-width: 17ch;
+    margin: 0 0 36px;
+  }
+
+  .body {
+    font-size: 22px;
+    line-height: var(--leading-relaxed);
+    max-width: 640px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .scroll {
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .scroll-line {
+    width: 28px;
+    height: 1px;
+    background: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 0 24px;
+      min-height: 80vh;
+    }
+  }
+</style>

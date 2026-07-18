@@ -1,0 +1,46 @@
+---
+import { AUDIENCES } from '../content/copy';
+
+const dev = AUDIENCES.developers;
+---
+
+<section id={dev.id} class="developers">
+  <div class="container">
+    <p class="muted-eyebrow">{dev.eyebrow}</p>
+    <h2>{dev.headline}</h2>
+    <div class="quote">"{dev.quote}"</div>
+  </div>
+</section>
+
+<style>
+  .developers {
+    padding: 100px 0;
+  }
+
+  .muted-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(26px, 3.2vw, 40px);
+    line-height: 1.15;
+    max-width: 18ch;
+    margin: 0 0 32px;
+  }
+
+  .quote {
+    font-family: var(--font-mono);
+    font-size: clamp(20px, 2.6vw, 28px);
+    color: var(--text-primary);
+    border: 1px solid var(--border-strong);
+    padding: 28px 32px;
+    display: inline-block;
+  }
+</style>

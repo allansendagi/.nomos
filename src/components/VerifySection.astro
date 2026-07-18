@@ -1,0 +1,361 @@
+---
+import { VERIFY } from '../content/copy';
+
+const sampleJson = JSON.stringify(VERIFY.sampleArtifact, null, 2);
+---
+
+<section id="verify" class="verify-section">
+  <div class="inner">
+    <p class="eyebrow">{VERIFY.eyebrow}</p>
+    <h2>{VERIFY.headline}</h2>
+    <p class="subhead">{VERIFY.subhead}</p>
+
+    <div class="panels">
+      <div class="editor">
+        <div class="editor-head">
+          <span class="filename">{VERIFY.filename}</span>
+          <button type="button" id="load-sample" class="load-btn">{VERIFY.loadSampleLabel}</button>
+        </div>
+        <textarea
+          id="artifact-input"
+          class="artifact-textarea"
+          spellcheck="false"
+          placeholder={VERIFY.placeholder}></textarea>
+        <button type="button" id="verify-btn" class="verify-btn">{VERIFY.verifyLabel}</button>
+      </div>
+
+      <div class="result" id="result-panel">
+        <p class="empty-state" id="empty-state">{VERIFY.emptyState}</p>
+        <p class="checking-state" id="checking-state" hidden>{VERIFY.checkingLabel}</p>
+        <div class="result-content" id="result-content" hidden>
+          <div class="checklist">
+            <div class="check-row">
+              <span class="check-label">{VERIFY.checklistLabels.authority}</span>
+              <span class="check-val" id="check-authority"></span>
+            </div>
+            <div class="check-row">
+              <span class="check-label">{VERIFY.checklistLabels.ruleMatch}</span>
+              <span class="check-val" id="check-rule"></span>
+            </div>
+            <div class="check-row">
+              <span class="check-label">{VERIFY.checklistLabels.constraints}</span>
+              <span class="check-val" id="check-constraints"></span>
+            </div>
+            <div class="check-row">
+              <span class="check-label">{VERIFY.checklistLabels.signature}</span>
+              <span class="check-val" id="check-signature"></span>
+            </div>
+          </div>
+          <p class="decision" id="decision-line"></p>
+          <p class="hash-line" id="hash-line"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ sampleJson }}>
+  function simpleHash(str) {
+    let h = 0;
+    for (let i = 0; i < str.length; i++) {
+      h = (Math.imul(31, h) + str.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(16).padStart(8, '0');
+  }
+
+  const textarea = document.getElementById('artifact-input');
+  const loadSampleBtn = document.getElementById('load-sample');
+  const verifyBtn = document.getElementById('verify-btn');
+  const emptyState = document.getElementById('empty-state');
+  const checkingState = document.getElementById('checking-state');
+  const resultContent = document.getElementById('result-content');
+  const checkAuthority = document.getElementById('check-authority');
+  const checkRule = document.getElementById('check-rule');
+  const checkConstraints = document.getElementById('check-constraints');
+  const checkSignature = document.getElementById('check-signature');
+  const decisionLine = document.getElementById('decision-line');
+  const hashLine = document.getElementById('hash-line');
+
+  textarea.value = sampleJson;
+
+  function resetPanel() {
+    emptyState.hidden = false;
+    checkingState.hidden = true;
+    resultContent.hidden = true;
+  }
+
+  function setCheck(el, ok, passLabel, failLabel) {
+    el.textContent = ok ? passLabel : failLabel;
+    el.style.color = ok ? 'var(--verify-ok)' : 'var(--verify-fail)';
+  }
+
+  function renderResult(checks, hash) {
+    const allPass = checks.authority && checks.rule && checks.constraints && checks.signature;
+    setCheck(checkAuthority, checks.authority, 'VALID ✓', 'INVALID ✕');
+    setCheck(checkRule, checks.rule, 'VALID ✓', 'INVALID ✕');
+    setCheck(checkConstraints, checks.constraints, 'PASS ✓', 'FAIL ✕');
+    setCheck(checkSignature, checks.signature, 'VERIFIED ✓', 'UNVERIFIED ✕');
+    decisionLine.textContent = allPass ? 'DECISION: AUTHORIZED' : 'DECISION: DENIED';
+    decisionLine.style.color = allPass ? 'var(--verify-ok)' : 'var(--verify-fail)';
+    hashLine.textContent = hash ? `hash: ${hash}` : '';
+
+    emptyState.hidden = true;
+    checkingState.hidden = false;
+    resultContent.hidden = true;
+
+    setTimeout(() => {
+      checkingState.hidden = true;
+      resultContent.hidden = false;
+    }, 500);
+  }
+
+  loadSampleBtn.addEventListener('click', () => {
+    textarea.value = sampleJson;
+    resetPanel();
+  });
+
+  textarea.addEventListener('input', resetPanel);
+
+  textarea.addEventListener('dragover', (e) => e.preventDefault());
+  textarea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer?.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      textarea.value = String(ev.target?.result ?? '');
+      resetPanel();
+    };
+    reader.readAsText(file);
+  });
+
+  verifyBtn.addEventListener('click', () => {
+    let parsed;
+    try {
+      parsed = JSON.parse(textarea.value);
+    } catch {
+      renderResult({ authority: false, rule: false, constraints: false, signature: false }, null);
+      return;
+    }
+    const checks = {
+      authority: !!parsed && !!parsed.authority,
+      rule: !!parsed && Array.isArray(parsed.rules) && parsed.rules.length > 0,
+      constraints: !!parsed && !!parsed.conditions && Object.keys(parsed.conditions).length > 0,
+      signature: !!parsed && typeof parsed.signature === 'string' && parsed.signature.length > 8,
+    };
+    const allPass = checks.authority && checks.rule && checks.constraints && checks.signature;
+    renderResult(checks, allPass ? simpleHash(textarea.value) : null);
+  });
+</script>
+
+<style>
+  .verify-section {
+    padding: 160px 48px;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-primary);
+    --verify-ok: var(--accent);
+    --verify-fail: oklch(0.65 0.2 25);
+  }
+
+  .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(30px, 3.8vw, 48px);
+    line-height: 1.2;
+    margin: 0 0 16px;
+    text-align: center;
+  }
+
+  .subhead {
+    font-size: var(--text-lg);
+    color: var(--text-tertiary);
+    text-align: center;
+    margin: 0 0 56px;
+  }
+
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+  }
+
+  .editor,
+  .result {
+    background: var(--bg-secondary);
+    padding: 28px;
+  }
+
+  .editor {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editor-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .filename {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .load-btn {
+    background: none;
+    border: 1px solid var(--border-strong);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .load-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .artifact-textarea {
+    flex: 1;
+    min-height: 260px;
+    resize: none;
+    background: var(--bg-primary);
+    border: 1px dashed var(--border-strong);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+
+  .artifact-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .verify-btn {
+    margin-top: 16px;
+    background: var(--accent);
+    border: none;
+    color: var(--bg-primary);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px;
+    cursor: pointer;
+    font-weight: var(--font-medium);
+  }
+
+  .verify-btn:hover {
+    filter: brightness(1.1);
+  }
+
+  .result {
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+  }
+
+  .empty-state,
+  .checking-state {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 260px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .empty-state[hidden],
+  .checking-state[hidden],
+  .result-content[hidden] {
+    display: none;
+  }
+
+  .checking-state {
+    font-family: var(--font-mono);
+    animation: pulse 1s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    color: var(--text-secondary);
+  }
+
+  .check-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-primary);
+    padding-bottom: 10px;
+  }
+
+  .check-label {
+    color: var(--text-muted);
+  }
+
+  .decision {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-strong);
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    letter-spacing: 0.04em;
+  }
+
+  .hash-line {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-primary);
+    color: var(--text-muted);
+    font-size: 11px;
+    word-break: break-all;
+  }
+
+  @media (max-width: 760px) {
+    .panels {
+      grid-template-columns: 1fr;
+    }
+    .verify-section {
+      padding: 100px 24px;
+    }
+  }
+</style>

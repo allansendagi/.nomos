@@ -1,0 +1,118 @@
+---
+import { AUTHORITY_STACK } from '../content/copy';
+---
+
+<section id="stack" class="stack-section">
+  <p class="eyebrow">{AUTHORITY_STACK.eyebrow}</p>
+  <h2>{AUTHORITY_STACK.headline}</h2>
+
+  <div class="stack">
+    {AUTHORITY_STACK.layers.map((layer) => (
+      <div class:list={['layer', { accent: layer.accent }]}>
+        <div>
+          <p class="name">{layer.name}</p>
+          <p class="desc">{layer.desc}</p>
+        </div>
+        {layer.badge && <span class="badge">{layer.badge}</span>}
+      </div>
+    ))}
+  </div>
+
+  <p class="closer">{AUTHORITY_STACK.closer}</p>
+</section>
+
+<style>
+  .stack-section {
+    padding: 160px 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(30px, 3.6vw, 46px);
+    line-height: 1.2;
+    margin: 0 0 80px;
+    text-align: center;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border-primary);
+    border: 1px solid var(--border-primary);
+  }
+
+  .layer {
+    background: var(--bg-secondary);
+    padding: 36px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .layer.accent {
+    background: color-mix(in oklch, var(--accent) 12%, var(--bg-secondary));
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .name {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .layer.accent .name {
+    font-size: 24px;
+    color: var(--accent);
+  }
+
+  .desc {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .layer.accent .desc {
+    color: var(--text-secondary);
+  }
+
+  .badge {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+
+  .closer {
+    margin-top: 40px;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    color: var(--text-tertiary);
+  }
+
+  @media (max-width: 640px) {
+    .stack-section {
+      padding: 100px 24px;
+    }
+    .layer {
+      padding: 24px 20px;
+      gap: 12px;
+    }
+  }
+</style>

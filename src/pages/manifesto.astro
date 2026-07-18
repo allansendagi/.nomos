@@ -1,0 +1,631 @@
+---
+// Ported verbatim from the standalone artifact "The Next Operating System"
+// (claude.ai/code/artifact/0c431cf6-6dc1-4850-b5ec-ee1251662684).
+// Deliberately not wrapped in BaseLayout: this essay has its own complete,
+// self-contained parchment/serif identity distinct from the rest of the
+// site's near-black theme, and already ships proper light/dark support.
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>The Next Operating System — NOMOS</title>
+    <meta
+      name="description"
+      content="Why institutional authority — not intelligence, not automation — is the infrastructure civilization hasn't finished building yet."
+    />
+    <meta property="og:title" content="The Next Operating System — NOMOS" />
+    <meta
+      property="og:description"
+      content="Why institutional authority — not intelligence, not automation — is the infrastructure civilization hasn't finished building yet."
+    />
+    <meta property="og:type" content="article" />
+  </head>
+  <body>
+    <div class="doc">
+      <div class="wrap">
+        <a class="back" href="/">← nomos</a>
+
+        <header class="masthead">
+          <p class="kicker">A Civilizational Case for NOMOS</p>
+          <h1>The Next Operating System</h1>
+          <p class="dek">
+            Why institutional authority — not intelligence, not automation — is the infrastructure
+            civilization hasn't finished building yet.
+          </p>
+        </header>
+
+        <p class="epigraph">
+          Civilizations do not scale on intelligence. They scale on coordination — and history is the
+          record of every time we had to invent a new way to make coordination trustworthy at a size
+          the last method could no longer hold.
+        </p>
+
+        <div class="timeline-wrap">
+          <div class="timeline">
+            <div class="tl-node"><span class="tl-era">~5,000 BCE</span><span class="tl-label">Written law</span></div>
+            <div class="tl-node"><span class="tl-era">~1300s</span><span class="tl-label">Double-entry bookkeeping</span></div>
+            <div class="tl-node"><span class="tl-era">1875</span><span class="tl-label">Standardized weights &amp; measures</span></div>
+            <div class="tl-node"><span class="tl-era">1970s</span><span class="tl-label">SWIFT, interbank trust at scale</span></div>
+            <div class="tl-node now"><span class="tl-era">Now</span><span class="tl-label">Authority, made provable</span></div>
+          </div>
+        </div>
+
+        <main>
+          <div class="roman"><span class="num">I. Coordination is the actual technology</span><span class="rule"></span></div>
+          <p>
+            Not fire. Not the wheel. What let bands of a hundred become cities of a million, and cities
+            become nations, and nations become a planetary network, was never raw intelligence — plenty of
+            intelligent species never built any of it. It was a specific, repeated act: inventing a new way
+            to make a large number of strangers trust the same rule, without any of them having to
+            personally trust each other.
+          </p>
+          <p>
+            Spoken agreement scaled a village. Written law scaled a kingdom. Double-entry bookkeeping let
+            commerce outgrow what a merchant could hold in his own memory. Standardized weights and
+            measures let a contract mean the same thing in two cities that had never met. Every leap in
+            civilizational scale followed, not preceded, a leap in the infrastructure that let coordination
+            survive without personal trust.
+          </p>
+
+          <div class="roman"><span class="num">II. Every institution still runs on two systems — only one is written down</span><span class="rule"></span></div>
+          <p>
+            Look inside any bank, ministry, or hospital and the pattern is unfinished. There is a formal
+            system — the policy manual, the statute, the compliance framework — and there is the actual
+            system: the exceptions nobody wrote down, the judgment call a supervisor makes from memory, the
+            workaround that became normal because someone needed it once, years ago, and nobody ever
+            revisited it. That second system is the institution's real operating system, running invisibly
+            beneath the one anyone could show an auditor.
+          </p>
+
+          <div class="roman"><span class="num">III. At human speed, this was survivable — because humans were quietly compensating</span><span class="rule"></span></div>
+          <p>
+            A clerk who half-remembers a rule still notices when a decision looks obviously wrong, and asks
+            someone. An officer who has seen ten thousand cases develops an instinct for when a form doesn't
+            add up, even without being able to cite which line of policy flagged it. This informal
+            compensation is not a flaw institutions have merely tolerated — it is the actual mechanism that
+            has kept the gap between formal rules and formal outcomes from becoming catastrophic, for
+            centuries. It is also entirely undocumented, unmeasured, and invisible. No institution has ever
+            been able to say exactly how much entropy its own bureaucracy is running on, because the humans
+            inside it have always silently absorbed it before it surfaced.
+          </p>
+
+          <p class="pull">
+            When logic is informal, entropy is invisible — not because it isn't there,<br />
+            but because someone has always been quietly correcting for it before anyone had to look.
+          </p>
+
+          <div class="roman"><span class="num">IV. Autonomous agents remove the thing that was absorbing the decay</span><span class="rule"></span></div>
+          <p>
+            An agent given the same authority a clerk had does not develop the clerk's instinct. It does
+            not pause because something "feels off." It applies whatever it was given — the formal rule, or
+            more precisely, whatever pattern it inferred from data that already encodes decades of
+            undocumented exception — faithfully, at whatever speed and volume it is asked to run at. This is
+            not a claim that AI is reckless. It is narrower and more exact: the silent correction layer that
+            made informal institutional logic survivable for several thousand years does not exist inside a
+            machine, and almost nothing has yet been built to replace it.
+          </p>
+          <p>
+            This is the real stakes of the present moment, and it has nothing to do with whether any
+            particular model is capable or well-aligned. Every institution on Earth is currently carrying
+            some amount of undocumented, unmeasured entropy in its actual rules. That entropy has stayed
+            invisible only because people were quietly patching around it. The more of that authority moves
+            to autonomous execution, the faster the decay that was always there becomes visible — as
+            incidents, as outcomes nobody intended, as the first ruling nobody can explain after the fact.
+          </p>
+
+          <div class="roman"><span class="num">V. What has to exist: authority that can be checked without asking to be believed</span><span class="rule"></span></div>
+          <p>
+            The fix is not slower AI, and it is not layering human review back on top of everything — that
+            simply reintroduces the bottleneck autonomy was meant to remove. What has to exist is a way to
+            take an institution's actual authority — not the informal version, the real, intended one — and
+            represent it as something a machine can execute deterministically, and any outside party can
+            verify independently, without needing to trust the institution's own account of what its rules
+            say.
+          </p>
+          <p>
+            That is the specific, narrow thing NOMOS does. A real policy document goes in. It is extracted
+            into explicit rules, checked for the contradictions that accumulate in anything revised by
+            committee over years, reconciled against how the institution has actually behaved, and sealed —
+            hashed and signed, so the rules an agent executes under today are the same rules a regulator can
+            verify a year from now, offline, with nothing but a public key. Not a claim about the
+            institution's good faith. A cryptographic fact.
+          </p>
+
+          <div class="roman"><span class="num">VI. Why this is a government problem before it is anyone else's</span><span class="rule"></span></div>
+          <p>
+            A company that gets this wrong faces a lawsuit or a bad quarter. A government that gets this
+            wrong is the exact thing the rule of law exists to prevent from happening quietly. When a
+            licensing agency, a benefits system, or a regulator hands decisions to an autonomous agent, the
+            public's real protection was never the paper policy — it was the years of civil servants who
+            silently caught the cases where the paper policy, applied literally, would have produced an
+            unjust result. Remove that layer without replacing it with something that can prove what
+            happened and why, and the state has not modernized. It has made its own discretion
+            unaccountable at precisely the moment it started moving at machine speed.
+          </p>
+
+          <div class="proof-note">
+            <svg class="mark" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.4"></circle>
+              <path
+                d="M8 12l2.5 2.5L16 9"
+                stroke="currentColor"
+                stroke-width="1.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+            <p>
+              <strong>This has already been built against a real regulator's document, not a hypothetical one.</strong>
+              A real government education authority's actual published governance policy — not a sample, not a
+              stand-in — has been extracted into machine-readable rules and cryptographically sealed under this
+              approach. The reconciliation-against-behavior and outcome-tracking machinery described above is
+              real and running; validating it end-to-end against that authority's live decisions is the next
+              step, not a claim already made here.
+            </p>
+          </div>
+
+          <div class="roman"><span class="num">VII. The actual offer</span><span class="rule"></span></div>
+          <p>
+            This is not a pitch to adopt new software. It is an argument that the next piece of
+            civilizational infrastructure — the one that makes institutional authority provable at the
+            speed machines now operate — has to be built before autonomous execution outpaces it much
+            further. And it is an offer of proof, not a promise: that building it is further along, and more
+            tractable, than it looks from the outside.
+          </p>
+
+          <div class="closing">
+            <h2>The pattern always repeats the same way</h2>
+            <p>
+              Nobody adopted written law, double-entry bookkeeping, or standardized measures because they
+              were elegant. They were adopted because the civilizations that didn't eventually lost
+              coordination to the ones that did. The infrastructure for provable authority will be adopted
+              the same way — not because it is a good idea, but because the alternative is running
+              institutions on invisible entropy, at machine speed, with nothing left to quietly catch it.
+            </p>
+          </div>
+
+          <div class="next-steps">
+            <a class="next-card" href="/contact">
+              <span class="next-eyebrow">For institutions and governments</span>
+              <span class="next-title">Request a governance briefing</span>
+              <span class="next-body"
+                >A scoped, concrete first step: extract and seal one of your own governance documents, and see
+                where it agrees and disagrees with your own past decisions.</span
+              >
+            </a>
+            <a class="next-card" href="/docs">
+              <span class="next-eyebrow">For developers</span>
+              <span class="next-title">npx nomos-guard</span>
+              <span class="next-body"
+                >Put a sealed policy in front of an MCP tool call in under a minute. No account, no setup —
+                see a verdict on your own terminal.</span
+              >
+            </a>
+          </div>
+        </main>
+
+        <footer class="share">
+          <div class="links">
+            <a href="https://github.com/nomos-spec/spec">The open spec</a>
+            <a href="/">nomosprotocol.com</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  :root {
+    --paper: #faf9f7;
+    --paper-2: #f2f0ec;
+    --ink: #1b1a17;
+    --ink-2: #46433c;
+    --ink-3: #7a7568;
+    --hair: #e3ded3;
+    --hair-2: #d2cabb;
+    --violet: #5e6ad2;
+    --violet-2: #4954bd;
+    --seal: #9a7a2e;
+    --seal-wash: #f3ecda;
+
+    --serif: ui-serif, 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio', Palatino, 'Book Antiqua', Georgia,
+      serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+    --measure: 64ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #161512;
+      --paper-2: #1d1c18;
+      --ink: #ece9e1;
+      --ink-2: #c2beb1;
+      --ink-3: #8a8677;
+      --hair: #322f28;
+      --hair-2: #45412f;
+      --violet: #8b93ee;
+      --violet-2: #a6ace9;
+      --seal: #d4b463;
+      --seal-wash: #2a2211;
+    }
+  }
+  :root[data-theme='light'] {
+    --paper: #faf9f7;
+    --paper-2: #f2f0ec;
+    --ink: #1b1a17;
+    --ink-2: #46433c;
+    --ink-3: #7a7568;
+    --hair: #e3ded3;
+    --hair-2: #d2cabb;
+    --violet: #5e6ad2;
+    --violet-2: #4954bd;
+    --seal: #9a7a2e;
+    --seal-wash: #f3ecda;
+  }
+  :root[data-theme='dark'] {
+    --paper: #161512;
+    --paper-2: #1d1c18;
+    --ink: #ece9e1;
+    --ink-2: #c2beb1;
+    --ink-3: #8a8677;
+    --hair: #322f28;
+    --hair-2: #45412f;
+    --violet: #8b93ee;
+    --violet-2: #a6ace9;
+    --seal: #d4b463;
+    --seal-wash: #2a2211;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+  }
+  .doc {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 28px 140px;
+  }
+
+  .back {
+    display: inline-block;
+    margin-top: 28px;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-3);
+    text-decoration: none;
+  }
+  .back:hover {
+    color: var(--violet);
+  }
+
+  .masthead {
+    padding: 40px 0 46px;
+    text-align: center;
+    border-bottom: 1px solid var(--hair);
+    margin-bottom: 56px;
+  }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 20px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(32px, 5.6vw, 48px);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .dek {
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--ink-3);
+    letter-spacing: 0.01em;
+    max-width: 44ch;
+    margin: 0 auto;
+  }
+
+  .epigraph {
+    font-size: 22px;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--ink);
+    max-width: var(--measure);
+    margin: 0 auto 60px;
+    text-align: center;
+    text-wrap: balance;
+    padding: 0 0 40px;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .timeline-wrap {
+    margin: 0 0 66px;
+    overflow-x: auto;
+  }
+  .timeline {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    min-width: 680px;
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 4px;
+  }
+  .tl-node {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding-top: 22px;
+  }
+  .tl-node::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1.5px solid var(--ink-3);
+  }
+  .tl-node.now::before {
+    background: var(--violet);
+    border-color: var(--violet);
+    width: 11px;
+    height: 11px;
+  }
+  .tl-node::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--hair-2);
+  }
+  .tl-node:first-child::after {
+    left: 50%;
+  }
+  .tl-node:last-child::after {
+    right: 50%;
+  }
+  .tl-era {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .tl-label {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--ink-2);
+    line-height: 1.35;
+    padding: 0 6px;
+  }
+  .tl-node.now .tl-label {
+    color: var(--violet);
+    font-weight: 600;
+  }
+
+  main {
+    max-width: var(--measure);
+    margin: 0 auto;
+  }
+  .roman {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin: 72px 0 26px;
+  }
+  .roman .num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--seal);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .roman .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--hair-2);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 30px;
+    color: var(--ink);
+  }
+  p {
+    margin: 0 0 26px;
+    color: var(--ink-2);
+  }
+  p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  em {
+    font-style: italic;
+  }
+  code {
+    font-family: var(--mono);
+    font-size: 0.82em;
+    background: var(--paper-2);
+    color: var(--ink);
+    padding: 1px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--hair);
+  }
+
+  .pull {
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: 1.44;
+    color: var(--violet);
+    font-style: italic;
+    margin: 46px 0;
+    text-wrap: balance;
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .proof-note {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin: 46px 0;
+    padding: 22px 24px;
+    background: var(--seal-wash);
+    border-radius: 4px;
+    border: 1px solid color-mix(in srgb, var(--seal) 35%, transparent);
+  }
+  .proof-note .mark {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    margin-top: 3px;
+    color: var(--seal);
+  }
+  .proof-note p {
+    font-family: var(--sans);
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .proof-note strong {
+    color: var(--seal);
+  }
+
+  .closing {
+    margin-top: 80px;
+    padding-top: 46px;
+    border-top: 1px solid var(--hair);
+  }
+  .closing h2 {
+    font-size: 22px;
+  }
+
+  .next-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 56px;
+  }
+  .next-card {
+    display: block;
+    text-decoration: none;
+    padding: 24px 26px;
+    border-radius: 10px;
+    background: var(--paper-2);
+    border: 1px solid var(--hair);
+    transition:
+      border-color 150ms,
+      transform 150ms;
+  }
+  .next-card:hover {
+    border-color: var(--violet);
+    transform: translateY(-1px);
+  }
+  .next-eyebrow {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 10px;
+  }
+  .next-title {
+    display: block;
+    font-family: var(--serif);
+    font-size: 19px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .next-body {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-3);
+  }
+  @media (max-width: 640px) {
+    .next-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .share {
+    margin-top: 60px;
+    padding: 36px 0 0;
+    border-top: 1px solid var(--hair);
+    font-family: var(--sans);
+    font-size: 13.5px;
+    color: var(--ink-3);
+    text-align: center;
+  }
+  .share .links {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .share a {
+    color: var(--ink-2);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hair-2);
+    padding-bottom: 1px;
+  }
+  .share a:hover {
+    color: var(--violet);
+    border-bottom-color: var(--violet);
+  }
+
+  @media (max-width: 600px) {
+    .timeline {
+      min-width: 560px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .roman {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin: 56px 0 22px;
+    }
+    .roman .num {
+      white-space: normal;
+    }
+    .roman .rule {
+      width: 100%;
+      flex: none;
+    }
+  }
+</style>
