@@ -1,6 +1,5 @@
 ---
-import { PLATFORM, EXCHANGE_THESIS } from '../content/copy';
-import PlatformCard from './PlatformCard.astro';
+import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '../content/copy';
 ---
 
 <section id="platform" class="platform">
@@ -8,17 +7,165 @@ import PlatformCard from './PlatformCard.astro';
     <p class="muted-eyebrow">{PLATFORM.eyebrow}</p>
     <h2>{PLATFORM.headline}</h2>
 
-    <div class="grid">
-      {PLATFORM.products.map((p) => (
-        <PlatformCard name={p.name} tagline={p.tagline} body={p.body} />
-      ))}
+    <!-- 1. STUDIO -->
+    <div class="product">
+      <div class="product-head">
+        <span class="index">{STUDIO.index}</span>
+        <div>
+          <p class="name">{STUDIO.name}</p>
+          <p class="tag">{STUDIO.tag}</p>
+        </div>
+      </div>
+
+      <p class="purpose">{STUDIO.purpose}</p>
+      <p class="layer-label">{STUDIO.layerLabel}</p>
+
+      <div class="io-grid">
+        <div>
+          <p class="col-label">Input</p>
+          <ul class="plain-list">
+            {STUDIO.input.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <p class="col-label">Output</p>
+          <p class="output-value">{STUDIO.output}</p>
+        </div>
+      </div>
+
+      <p class="analogy">{STUDIO.analogy}</p>
+
+      <div class="example">
+        <p class="example-before">{STUDIO.exampleBefore}</p>
+        <div class="example-arrow">↓ becomes</div>
+        <pre class="example-after"><code>{STUDIO.exampleAfter}</code></pre>
+      </div>
+
+      <p class="summary">{STUDIO.summary}</p>
     </div>
 
-    <div class="thesis">
-      <p class="thesis-label">{EXCHANGE_THESIS.label}</p>
-      {EXCHANGE_THESIS.paragraphs.map((p) => (
-        <p class="thesis-p">{p}</p>
-      ))}
+    <!-- 2. REGISTRY -->
+    <div class="product">
+      <div class="product-head">
+        <span class="index">{REGISTRY.index}</span>
+        <div>
+          <p class="name">{REGISTRY.name}</p>
+          <p class="tag">{REGISTRY.tag}</p>
+        </div>
+      </div>
+
+      <p class="purpose">{REGISTRY.purpose}</p>
+      <p class="layer-label">{REGISTRY.layerLabel}</p>
+
+      <p class="col-label">It handles</p>
+      <div class="chips">
+        {REGISTRY.handles.map((item) => <span class="chip">{item}</span>)}
+      </div>
+
+      <div class="analogy-block">
+        {REGISTRY.analogy.map((line) => <p class="analogy">{line}</p>)}
+      </div>
+
+      <div class="version-chain">
+        {REGISTRY.versionChain.map((v, i) => (
+          <>
+            <span class="version-node">{v}</span>
+            {i < REGISTRY.versionChain.length - 1 && <span class="version-arrow">↓</span>}
+          </>
+        ))}
+      </div>
+
+      <p class="col-label">Questions it answers</p>
+      <ul class="questions">
+        {REGISTRY.questions.map((q) => <li>{q}</li>)}
+      </ul>
+
+      <p class="summary">{REGISTRY.summary}</p>
+    </div>
+
+    <!-- 3. GUARD -->
+    <div class="product">
+      <div class="product-head">
+        <span class="index">{GUARD.index}</span>
+        <div>
+          <p class="name">{GUARD.name}</p>
+          <p class="tag">{GUARD.tag}</p>
+        </div>
+      </div>
+
+      <p class="layer-label">{GUARD.layerLabel}</p>
+      <p class="purpose">{GUARD.context}</p>
+
+      <div class="guard-flow">
+        {GUARD.flow.map((step, i) => (
+          <>
+            <span class:list={['flow-node', { accent: i === 2 }]}>{step}</span>
+            {i < GUARD.flow.length - 1 && <span class="flow-arrow">↓</span>}
+          </>
+        ))}
+      </div>
+
+      <p class="analogy">{GUARD.sitsBetween}</p>
+      <p class="answers">{GUARD.answers}</p>
+
+      <p class="summary">{GUARD.summary}</p>
+    </div>
+
+    <!-- 4. EXCHANGE -->
+    <div class="product">
+      <div class="product-head">
+        <span class="index">{EXCHANGE.index}</span>
+        <div>
+          <p class="name">{EXCHANGE.name}</p>
+          <p class="tag">{EXCHANGE.tag}</p>
+        </div>
+      </div>
+
+      <p class="purpose">{EXCHANGE.intro}</p>
+
+      <div class="analogy-rows">
+        {EXCHANGE.analogyList.map((row) => (
+          <div class:list={['analogy-row', { accent: row.accent }]}>
+            <span class="platform-name">{row.platform}</span>
+            <span class="arrow-sep">→</span>
+            <span class="product-name">{row.product}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="col-label">Already publishing</p>
+      <div class="publisher-rows">
+        {EXCHANGE.publisherExamples.map((row) => (
+          <div class="publisher-row">
+            <span class="publisher">{row.publisher}</span>
+            <span class="artifact">{row.artifact}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="verbs">
+        {EXCHANGE.verbs.map((v) => <span class="verb">{v}</span>)}
+      </div>
+
+      <p class="summary">{EXCHANGE.summary}</p>
+    </div>
+
+    <!-- SUMMARY TABLE -->
+    <div class="summary-table-wrap">
+      <table class="summary-table">
+        <thead>
+          <tr>
+            {ECOSYSTEM_SUMMARY.headers.map((h) => <th>{h}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {ECOSYSTEM_SUMMARY.rows.map((row) => (
+            <tr>
+              {row.map((cell, i) => (i === 0 ? <td class="layer-cell">{cell}</td> : <td>{cell}</td>))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -43,42 +190,343 @@ import PlatformCard from './PlatformCard.astro';
     font-size: clamp(28px, 3.4vw, 42px);
     line-height: var(--leading-snug);
     max-width: 14ch;
-    margin: 0 0 56px;
+    margin: 0 0 72px;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1px;
-    background: var(--border-primary);
-    border: 1px solid var(--border-primary);
-    margin-bottom: 88px;
+  .product {
+    padding: 64px 0;
+    border-top: 1px solid var(--border-primary);
   }
 
-  .thesis {
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
+  .product:last-of-type {
+    border-bottom: 1px solid var(--border-primary);
   }
 
-  .thesis-label {
+  .product-head {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .index {
+    font-family: var(--font-mono);
+    font-size: var(--text-4xl);
+    color: var(--border-strong);
+    line-height: 1;
+  }
+
+  .name {
     font-family: var(--font-serif);
-    font-style: italic;
     font-size: var(--text-2xl);
-    color: var(--accent);
-    margin-bottom: 28px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
   }
 
-  .thesis-p {
+  .tag {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .purpose {
     font-size: var(--text-lg);
-    line-height: var(--leading-relaxed);
     color: var(--text-secondary);
+    max-width: 620px;
     margin-bottom: 12px;
   }
 
-  .thesis-p:last-child {
-    margin-bottom: 0;
+  .layer-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .col-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+  }
+
+  .io-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+
+  .plain-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+  }
+
+  .output-value {
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    color: var(--accent);
+  }
+
+  .analogy {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+    margin-bottom: 32px;
+  }
+
+  .analogy-block {
+    margin-bottom: 32px;
+  }
+
+  .analogy-block .analogy {
+    margin-bottom: 4px;
+  }
+
+  .example {
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+
+  .example-before {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+  }
+
+  .example-arrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin: 16px 0;
+  }
+
+  .example-after {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    padding: 20px 24px;
+    margin: 0;
+    overflow-x: auto;
+  }
+
+  .example-after code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    color: var(--accent);
+    white-space: pre;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .chip {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+    padding: 6px 12px;
+  }
+
+  .version-chain {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 32px;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .version-node {
+    color: var(--text-primary);
+    padding: 6px 0;
+  }
+
+  .version-arrow {
+    color: var(--text-muted);
+  }
+
+  .questions {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+
+  .questions li::before {
+    content: '— ';
+    color: var(--text-muted);
+  }
+
+  .guard-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin-bottom: 32px;
+  }
+
+  .flow-node {
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    padding: 10px 0;
+  }
+
+  .flow-node.accent {
+    color: var(--accent);
+    font-weight: var(--font-medium);
+  }
+
+  .flow-arrow {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .answers {
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    margin-bottom: 32px;
+  }
+
+  .analogy-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .analogy-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-tertiary);
+  }
+
+  .analogy-row.accent {
+    color: var(--accent);
+  }
+
+  .arrow-sep {
+    color: var(--text-muted);
+  }
+
+  .publisher-rows {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+  }
+
+  .publisher-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px 0;
+    border-top: 1px solid var(--border-primary);
+    font-size: var(--text-sm);
+  }
+
+  .publisher {
+    color: var(--text-muted);
+  }
+
+  .artifact {
+    color: var(--text-primary);
+    text-align: right;
+  }
+
+  .verbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .verb {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    padding: 6px 12px;
+  }
+
+  .summary {
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
     color: var(--text-primary);
     font-weight: var(--font-medium);
+  }
+
+  .summary-table-wrap {
+    margin-top: 96px;
+    overflow-x: auto;
+  }
+
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+
+  .summary-table th {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: left;
+    padding: 0 16px 16px 0;
+    border-bottom: 1px solid var(--border-strong);
+  }
+
+  .summary-table td {
+    padding: 16px 16px 16px 0;
+    border-bottom: 1px solid var(--border-primary);
+    color: var(--text-secondary);
+  }
+
+  .summary-table .layer-cell {
+    font-family: var(--font-mono);
+    color: var(--accent);
+  }
+
+  @media (max-width: 700px) {
+    .io-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .publisher-row {
+      flex-direction: column;
+      gap: 4px;
+    }
+    .artifact {
+      text-align: left;
+    }
   }
 </style>

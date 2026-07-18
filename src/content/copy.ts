@@ -126,37 +126,80 @@ export const AUTHORITY_STACK = {
 export const PLATFORM = {
   eyebrow: 'THE ECOSYSTEM',
   headline: 'One protocol. Multiple layers.',
-  products: [
-    {
-      name: 'NOMOS Studio',
-      tagline: 'Create .nomos artifacts.',
-      body: 'Transform institutional policies, regulations, and logic into machine-readable authority.',
-    },
-    {
-      name: 'NOMOS Registry',
-      tagline: 'The system of record for authority.',
-      body: 'Version. Govern. Distribute. Audit.',
-    },
-    {
-      name: 'NOMOS Guard',
-      tagline: 'The enforcement layer.',
-      body: 'Verify whether an action is authorized before execution.',
-    },
-    {
-      name: 'NOMOS Exchange',
-      tagline: 'The marketplace for trusted authority artifacts.',
-      body: '',
-    },
-  ],
 };
 
-export const EXCHANGE_THESIS = {
-  label: 'A new economy of authority',
-  paragraphs: [
-    'Every institution contains thousands of rules.',
-    'Today they exist as PDFs, manuals, and internal knowledge.',
-    'Tomorrow they become portable authority artifacts.',
-    '.nomos creates the infrastructure for discovering, verifying, and exchanging them.',
+export const STUDIO = {
+  index: '1',
+  name: 'NOMOS Studio',
+  tag: 'Create Authority',
+  purpose: 'Transform institutional intent into a .nomos artifact.',
+  layerLabel: 'The creation layer.',
+  input: ['Policies', 'Regulations', 'Contracts', 'Procedures', 'Institutional logic'],
+  output: 'Signed .nomos artifact',
+  analogy: 'Studio is like a compiler for authority.',
+  exampleBefore: '"Employees may approve refunds up to $10,000 after manager review."',
+  exampleAfter: `{
+  authority: "Company Finance Policy",
+  rule: "refund.approval",
+  constraint: "amount <= 10000",
+  condition: "managerApprovalRequired"
+}`,
+  summary: 'Studio = create authority',
+};
+
+export const REGISTRY = {
+  index: '2',
+  name: 'NOMOS Registry',
+  tag: 'Govern Authority',
+  purpose: 'The system of record for authority.',
+  layerLabel: 'The institutional control plane.',
+  handles: ['Versioning', 'Approval workflows', 'Assignments', 'Distribution', 'Audit history', 'Lifecycle management'],
+  analogy: ['GitHub manages code versions.', 'Registry manages authority versions.'],
+  versionChain: ['Policy v1.0', 'Policy v1.1', 'Policy v2.0'],
+  questions: ['Which authority is currently active?', 'Who approved it?', 'Who can use it?', 'What changed?'],
+  summary: 'Registry = govern authority',
+};
+
+export const GUARD = {
+  index: '3',
+  name: 'NOMOS Runtime / Guard',
+  tag: 'Execute Authority',
+  layerLabel: 'The missing layer.',
+  context: 'The agent era creates this requirement.',
+  flow: ['Agent', '"Can I do this?"', 'NOMOS Guard', '.nomos verification', 'Tool execution'],
+  sitsBetween: 'Guard sits between an autonomous system and action.',
+  answers: '"Is this action permitted by a valid authority artifact?"',
+  summary: 'Guard = enforce authority',
+};
+
+export const EXCHANGE = {
+  index: '4',
+  name: 'NOMOS Exchange',
+  tag: 'Discover and Exchange Authority',
+  intro: 'Exchange is not just a marketplace. It is the network layer.',
+  analogyList: [
+    { platform: 'AWS Marketplace', product: 'software capabilities', accent: false },
+    { platform: 'App Store', product: 'applications', accent: false },
+    { platform: 'npm', product: 'code packages', accent: false },
+    { platform: 'Exchange', product: 'authority packages', accent: true },
+  ],
+  publisherExamples: [
+    { publisher: 'A government publishes', artifact: 'Building Permit Authority Artifact' },
+    { publisher: 'A bank publishes', artifact: 'Loan Approval Authority Artifact' },
+    { publisher: 'A company publishes', artifact: 'Procurement Approval Authority Artifact' },
+  ],
+  verbs: ['Discover', 'License', 'Subscribe', 'Fork', 'Adopt'],
+  summary: 'Exchange = distribute authority',
+};
+
+export const ECOSYSTEM_SUMMARY = {
+  headers: ['Layer', 'Function', 'Simple phrase'],
+  rows: [
+    ['.nomos', 'Protocol', 'The authority primitive'],
+    ['Studio', 'Creation', 'Create authority'],
+    ['Registry', 'Governance', 'Manage authority'],
+    ['Runtime / Guard', 'Enforcement', 'Verify authority'],
+    ['Exchange', 'Distribution', 'Exchange authority'],
   ],
 };
 
