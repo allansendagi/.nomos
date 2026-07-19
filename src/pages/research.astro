@@ -66,6 +66,11 @@
             Why Intelligence Alone Cannot Scale — and the Missing Layer Every Organization Now Requires
           </p>
           <p class="meta">Published: 2026 · Classification: Public Release · ~18 min read</p>
+          <p class="series-hint">
+            Paper 1 of a three-part series ·
+            <a href="https://www.nomosprotocol.com/paper-2" target="_blank" rel="noopener noreferrer">Paper 2 ↗</a> ·
+            <a href="https://www.nomosprotocol.com/paper-3" target="_blank" rel="noopener noreferrer">Paper 3 ↗</a>
+          </p>
         </header>
 
         <div class="proof-note">
@@ -441,6 +446,25 @@
   "sealed_by": "org:acme-bank",
   "seal_hash": "sha256:final..."
 }`}</code></pre>
+
+          <div class="series">
+            <p class="series-label">The NOMOS research series</p>
+            <div class="series-row current">
+              <span class="series-num">Paper 1</span>
+              <span class="series-title">Operational Logic Infrastructure for the Autonomous Era</span>
+              <span class="series-note">This paper</span>
+            </div>
+            <a class="series-row" href="https://www.nomosprotocol.com/paper-2" target="_blank" rel="noopener noreferrer">
+              <span class="series-num">Paper 2</span>
+              <span class="series-title">The Emergence of Operational Logic: A Theory of Organizational Decision Systems</span>
+              <span class="series-note">Read on nomosprotocol.com ↗</span>
+            </a>
+            <a class="series-row" href="https://www.nomosprotocol.com/paper-3" target="_blank" rel="noopener noreferrer">
+              <span class="series-num">Paper 3</span>
+              <span class="series-title">The Definitions Index Problem</span>
+              <span class="series-note">Read on nomosprotocol.com ↗</span>
+            </a>
+          </div>
 
           <div class="next-steps">
             <a class="next-card" href="/">
@@ -896,6 +920,74 @@
     border-top: 1px solid var(--hair);
   }
 
+  .series-hint {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    margin: 12px 0 0;
+  }
+  .series-hint a {
+    color: var(--violet);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hair-2);
+    padding-bottom: 1px;
+  }
+  .series-hint a:hover {
+    border-bottom-color: var(--violet);
+  }
+
+  .series {
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--hair);
+  }
+  .series-label {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--seal);
+    margin: 0 0 18px;
+  }
+  .series-row {
+    display: grid;
+    grid-template-columns: 72px 1fr auto;
+    gap: 18px;
+    align-items: baseline;
+    padding: 16px 0;
+    border-top: 1px solid var(--hair);
+    text-decoration: none;
+    color: inherit;
+  }
+  .series-row:last-of-type {
+    border-bottom: 1px solid var(--hair);
+  }
+  .series-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--seal);
+    white-space: nowrap;
+  }
+  .series-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .series-note {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+  a.series-row:hover .series-title,
+  a.series-row:hover .series-note {
+    color: var(--violet);
+  }
+  .series-row.current .series-note {
+    color: var(--seal);
+  }
+
   .next-steps {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -987,6 +1079,13 @@
     }
     .next-steps {
       grid-template-columns: 1fr;
+    }
+    .series-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .series-note {
+      white-space: normal;
     }
     .tier-list > div {
       flex-direction: column;

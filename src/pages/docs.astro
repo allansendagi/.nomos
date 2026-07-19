@@ -69,9 +69,14 @@ result.audit_record // SHA-256 — store for compliance`}</code></pre>
         </div>
       </div>
 
-      <a class="repo-cta" href="https://github.com/nomos-spec/spec" target="_blank" rel="noopener noreferrer">
-        View the full spec on GitHub ↗
-      </a>
+      <div class="cta-row">
+        <a class="repo-cta" href="https://github.com/nomos-spec/spec" target="_blank" rel="noopener noreferrer">
+          View the full spec on GitHub ↗
+        </a>
+        <a class="live-cta" href="https://www.nomosprotocol.com/docs" target="_blank" rel="noopener noreferrer">
+          Live API reference — nomosprotocol.com ↗
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -170,6 +175,13 @@ result.audit_record // SHA-256 — store for compliance`}</code></pre>
     text-align: right;
   }
 
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+
   .repo-cta {
     display: inline-block;
     font-family: var(--font-mono);
@@ -179,6 +191,14 @@ result.audit_record // SHA-256 — store for compliance`}</code></pre>
     background: var(--text-primary);
     padding: var(--space-3) var(--space-6);
     transition: background var(--transition-fast), color var(--transition-fast);
+  }
+
+  .live-cta {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
   }
 
   .repo-cta:hover {

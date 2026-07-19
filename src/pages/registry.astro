@@ -37,6 +37,12 @@ import { REGISTRY } from '../content/copy';
 
   <section class="quote-section">
     <p class="quote">{REGISTRY.summary}</p>
+    <a
+      class="live-link"
+      href="https://www.nomosprotocol.com/library"
+      target="_blank"
+      rel="noopener noreferrer">Browse the Artifact Library — live ↗</a
+    >
     <a class="back" href="/#platform">← Back to the ecosystem</a>
   </section>
 </BaseLayout>
@@ -158,7 +164,25 @@ import { REGISTRY } from '../content/copy';
     margin: 0 0 32px;
   }
 
+  .live-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bg-primary);
+    background: var(--accent);
+    padding: 14px 28px;
+    margin-bottom: 28px;
+    transition: filter var(--transition-fast);
+  }
+
+  .live-link:hover {
+    filter: brightness(1.1);
+  }
+
   .back {
+    display: block;
     font-family: var(--font-mono);
     font-size: var(--text-sm);
     color: var(--text-muted);

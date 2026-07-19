@@ -49,7 +49,10 @@ const steps = [
 
       <div class="cta-block">
         <p class="cta-lede">Want to see it run against a real policy?</p>
-        <a class="cta" href="/contact">Request a console walkthrough →</a>
+        <a class="cta" href="https://www.nomosprotocol.com/console" target="_blank" rel="noopener noreferrer"
+          >Open the NOMOS Console — live ↗</a
+        >
+        <a class="cta-secondary" href="/contact">Request a walkthrough →</a>
       </div>
     </div>
   </section>
@@ -141,5 +144,16 @@ const steps = [
   .cta:hover {
     background: var(--accent);
     color: var(--bg-primary);
+  }
+
+  .cta-secondary {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    transition: color var(--transition-fast);
+  }
+
+  .cta-secondary:hover {
+    color: var(--accent);
   }
 </style>
