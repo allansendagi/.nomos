@@ -14,10 +14,10 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
   <div class="container product-grid">
     <div class="product-index">
       <div class="index-num">{STUDIO.index}</div>
-      <div class="index-tag"><a href="/studio">{STUDIO.tag}</a></div>
+      <div class="index-tag"><a href="/studio">{STUDIO.tag} <span class="link-arrow">→</span></a></div>
     </div>
     <div class="product-body">
-      <h3><a href="/studio">{STUDIO.title}</a></h3>
+      <h3><a href="/studio">{STUDIO.title} <span class="link-arrow">→</span></a></h3>
       <p class="layer-label">{STUDIO.layerLabel}</p>
       <p class="body-text">{STUDIO.body}</p>
 
@@ -50,10 +50,10 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
   <div class="container product-grid">
     <div class="product-index">
       <div class="index-num">{REGISTRY.index}</div>
-      <div class="index-tag"><a href="/registry">{REGISTRY.tag}</a></div>
+      <div class="index-tag"><a href="/registry">{REGISTRY.tag} <span class="link-arrow">→</span></a></div>
     </div>
     <div class="product-body">
-      <h3><a href="/registry">{REGISTRY.title}</a></h3>
+      <h3><a href="/registry">{REGISTRY.title} <span class="link-arrow">→</span></a></h3>
       <p class="layer-label">{REGISTRY.layerLabel}</p>
       <p class="body-text">{REGISTRY.body}</p>
       <p class="analogy">{REGISTRY.analogy}</p>
@@ -81,10 +81,10 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
   <div class="container product-grid">
     <div class="product-index">
       <div class="index-num">{GUARD.index}</div>
-      <div class="index-tag"><a href="/guard">{GUARD.tag}</a></div>
+      <div class="index-tag"><a href="/guard">{GUARD.tag} <span class="link-arrow">→</span></a></div>
     </div>
     <div class="product-body">
-      <h3><a href="/guard">{GUARD.title}</a></h3>
+      <h3><a href="/guard">{GUARD.title} <span class="link-arrow">→</span></a></h3>
       <p class="layer-label">{GUARD.layerLabel}</p>
       <p class="body-text">{GUARD.body}</p>
 
@@ -115,10 +115,10 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
   <div class="container product-grid">
     <div class="product-index">
       <div class="index-num">{EXCHANGE.index}</div>
-      <div class="index-tag"><a href="/exchange">{EXCHANGE.tag}</a></div>
+      <div class="index-tag"><a href="/exchange">{EXCHANGE.tag} <span class="link-arrow">→</span></a></div>
     </div>
     <div class="product-body">
-      <h3><a href="/exchange">{EXCHANGE.title}</a></h3>
+      <h3><a href="/exchange">{EXCHANGE.title} <span class="link-arrow">→</span></a></h3>
       <p class="layer-label">{EXCHANGE.layerLabel}</p>
 
       <div class="analogy-grid">
@@ -240,6 +240,22 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
 
   .index-tag a {
     transition: color var(--transition-fast);
+  }
+
+  .link-arrow {
+    display: inline-block;
+    color: var(--accent);
+    transition: transform var(--transition-fast);
+  }
+
+  h3 .link-arrow {
+    font-size: 0.7em;
+    vertical-align: middle;
+  }
+
+  h3 a:hover .link-arrow,
+  .index-tag a:hover .link-arrow {
+    transform: translateX(4px);
   }
 
   .layer-label {
