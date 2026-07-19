@@ -94,9 +94,9 @@ export const PRIMITIVE = {
   number: '04',
   eyebrow: 'THE PRIMITIVE',
   headline: 'The .nomos artifact.',
-  dek: 'A new primitive for institutional authority.',
+  dek: '.nomos turns authority into an artifact.',
   nodes: ['Institutional Authority', '.nomos Artifact', 'Deterministic Verification', 'Authorized Execution'],
-  containsLabel: 'A .nomos artifact contains',
+  containsLabel: "What's inside",
   stack: [
     { name: 'AUTHORITY', desc: 'Who can act' },
     { name: 'RULES', desc: 'What applies' },

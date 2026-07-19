@@ -20,7 +20,6 @@ import { PRIMITIVE } from '../content/copy';
     <p class="col-label center">{PRIMITIVE.containsLabel}</p>
     <div class="stack-wrap">
       <div class="stack">
-        <p class="stack-label">.nomos</p>
         {PRIMITIVE.stack.map((row) => (
           <div class="stack-row">
             <span class="row-name">{row.name}</span>
@@ -114,14 +113,6 @@ import { PRIMITIVE } from '../content/copy';
     width: 100%;
     max-width: 360px;
     text-align: center;
-  }
-
-  .stack-label {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: var(--text-xl);
-    color: var(--accent);
-    margin-bottom: 12px;
   }
 
   .stack-row {
