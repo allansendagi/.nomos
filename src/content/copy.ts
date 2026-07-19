@@ -170,11 +170,22 @@ export const REGISTRY = {
   index: '02',
   tag: 'NOMOS REGISTRY',
   title: 'Govern Authority',
-  layerLabel: 'The institutional control plane',
-  body: 'The system of record for authority. Versioning, approval workflows, assignments, distribution, audit history, lifecycle management.',
-  analogy: 'GitHub manages code versions. Registry manages authority versions.',
+  layerLabel: 'The system of record for the authority graph',
+  body: 'Versioning, lineage, inheritance resolution, approval workflows, distribution, audit history, lifecycle management.',
+  analogy: 'Git manages code lineage. npm resolves dependencies. Registry does both — for authority.',
   versionChain: ['Policy v1.0', 'Policy v1.1', 'Policy v2.0'],
-  questions: ['Which authority is currently active?', 'Who can use it?', 'Who approved it?', 'What changed?'],
+  extendsLabel: 'The other axis: inheritance',
+  extendsChain: ['Claims Agent Authority', 'Bank AI Policy', 'Central Bank Guidance', 'Federal AI Law'],
+  extendsNote:
+    'Every artifact can declare what it extends. The Registry resolves the chain — so when a parent changes, one query answers what no institution can answer today: which policies and agents downstream are affected, and which are now in contradiction.',
+  questions: [
+    'Which authority is currently active?',
+    'Who can use it?',
+    'Who approved it?',
+    'What changed?',
+    'What does it extend?',
+    'If this changes, what breaks downstream?',
+  ],
   summary: 'Registry = govern authority',
 };
 

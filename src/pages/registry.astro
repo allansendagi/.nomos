@@ -5,7 +5,7 @@ import { REGISTRY } from '../content/copy';
 
 <BaseLayout
   title="NOMOS Registry — Govern Authority | .nomos"
-  description="The system of record for institutional authority: versioning, approval workflows, distribution, and full audit history for every sealed .nomos artifact."
+  description="The system of record for the authority graph: versioning, inheritance resolution, approval workflows, distribution, and full audit history for every sealed .nomos artifact."
 >
   <section class="hero">
     <div class="inner">
@@ -19,6 +19,7 @@ import { REGISTRY } from '../content/copy';
 
   <section class="content">
     <div class="inner">
+      <p class="col-label">One axis: version lineage</p>
       <div class="version-chain">
         {REGISTRY.versionChain.map((v, i) => (
           <>
@@ -27,6 +28,19 @@ import { REGISTRY } from '../content/copy';
           </>
         ))}
       </div>
+
+      <p class="col-label">{REGISTRY.extendsLabel}</p>
+      <div class="extends-chain">
+        {REGISTRY.extendsChain.map((node, i) => (
+          <>
+            <span class:list={['version-node', { accent: i === 0 }]}>{node}</span>
+            {i < REGISTRY.extendsChain.length - 1 && (
+              <span class="extends-arrow">↓ <em>extends</em></span>
+            )}
+          </>
+        ))}
+      </div>
+      <p class="extends-note">{REGISTRY.extendsNote}</p>
 
       <p class="col-label">Questions it answers</p>
       <div class="questions">
@@ -140,6 +154,35 @@ import { REGISTRY } from '../content/copy';
 
   .chain-arrow {
     color: var(--accent);
+  }
+
+  .extends-chain {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    margin-bottom: 28px;
+  }
+
+  .extends-arrow {
+    color: var(--accent);
+    font-size: var(--text-xs);
+    padding-left: 18px;
+  }
+
+  .extends-arrow em {
+    font-style: italic;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  .extends-note {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin: 0 0 56px;
+    max-width: 620px;
   }
 
   .questions {
