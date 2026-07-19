@@ -96,7 +96,16 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
         <div class="flow-box">{GUARD.flowBoxes[2]}</div>
       </div>
 
+      <div class="mcp-note">
+        <p class="mcp-note-body">
+          Guard is an MCP (Model Context Protocol) integration. Wrap a server you already run —
+          GitHub, Postgres, Stripe — with zero code changes:
+        </p>
+        <code class="mcp-note-cmd">{GUARD.mcpDetail.install}</code>
+      </div>
+
       <p class="summary">{GUARD.summary}</p>
+      <a class="detail-link" href="/guard">How Guard works — two integration paths →</a>
     </div>
   </div>
 </section>
@@ -452,6 +461,41 @@ import { PLATFORM, STUDIO, REGISTRY, GUARD, EXCHANGE, ECOSYSTEM_SUMMARY } from '
     font-size: var(--text-base);
     color: var(--accent);
     margin: 0;
+  }
+
+  .mcp-note {
+    border: 1px solid var(--border-primary);
+    padding: 24px 28px;
+    max-width: 640px;
+    margin-bottom: 32px;
+  }
+
+  .mcp-note-body {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 16px;
+  }
+
+  .mcp-note-cmd {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--accent);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-primary);
+    padding: 8px 14px;
+  }
+
+  .detail-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
   }
 
   .eco-summary {
