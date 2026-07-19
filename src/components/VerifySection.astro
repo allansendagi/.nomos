@@ -51,6 +51,8 @@ const sampleJson = JSON.stringify(VERIFY.sampleArtifact, null, 2);
         </div>
       </div>
     </div>
+
+    <p class="sample-caption">{VERIFY.sampleCaption}</p>
   </div>
 </section>
 
@@ -194,6 +196,15 @@ const sampleJson = JSON.stringify(VERIFY.sampleArtifact, null, 2);
     gap: 1px;
     background: var(--border-primary);
     border: 1px solid var(--border-primary);
+  }
+
+  .sample-caption {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: var(--leading-relaxed);
+    max-width: 640px;
+    margin: 20px auto 0;
+    text-align: center;
   }
 
   .editor,

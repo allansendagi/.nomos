@@ -4,8 +4,8 @@ import { ARTIFACT_PAGE } from '../content/copy';
 ---
 
 <BaseLayout
-  title="The .nomos Artifact — NOMOS"
-  description="A portable, cryptographically sealed representation of institutional intent."
+  title="The .nomos Artifact — Sealed, Verifiable Institutional Authority"
+  description="A portable, cryptographically sealed representation of institutional intent. Every field of the .nomos artifact explained, with a real KHDA school-fee governance example from Dubai."
 >
   <section class="hero">
     <div class="inner">
@@ -26,12 +26,13 @@ import { ARTIFACT_PAGE } from '../content/copy';
   <span class="key">"authority"</span>: <span class="str">"KHDA"</span>,
   <span class="key">"version"</span>: <span class="str">"2.1.0"</span>,
   <span class="key">"issuedBy"</span>: <span class="str">"Knowledge &amp; Human Development Authority"</span>,
-  <span class="key">"rules"</span>: [<span class="str">"treatment.requiresLicense"</span>, <span class="str">"amount.max=50000"</span>],
-  <span class="key">"conditions"</span>: {'{'} <span class="key">"region"</span>: <span class="str">"UAE"</span>, <span class="key">"validUntil"</span>: <span class="str">"2027-01-01"</span> {'}'},
+  <span class="key">"rules"</span>: [<span class="str">"school.requiresValidPermit"</span>, <span class="str">"feeIncrease.requiresApproval"</span>, <span class="str">"feeIncrease.max=5.2"</span>],
+  <span class="key">"conditions"</span>: {'{'} <span class="key">"jurisdiction"</span>: <span class="str">"Dubai Private Schools"</span>, <span class="key">"academicYear"</span>: <span class="str">"2026-2027"</span> {'}'},
   <span class="key">"provenance"</span>: {'{'} <span class="key">"issuer"</span>: <span class="str">"KHDA"</span>, <span class="key">"timestamp"</span>: <span class="str">"2026-01-14T00:00:00Z"</span> {'}'},
   <span class="key">"signature"</span>: <span class="str">"3f9ab7c2e4d1f0a89be6c5d3a12ef9e21c"</span>
 {'}'}</code></pre>
       </div>
+      <p class="example-caption">{ARTIFACT_PAGE.exampleCaption}</p>
       <div class="try-link">
         <a href="/#verify">{ARTIFACT_PAGE.tryVerifyingLabel} →</a>
       </div>
@@ -155,6 +156,15 @@ import { ARTIFACT_PAGE } from '../content/copy';
 
   code :global(.str) {
     color: oklch(0.75 0.14 145);
+  }
+
+  .example-caption {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+    line-height: var(--leading-relaxed);
+    max-width: 640px;
+    margin: 20px auto 0;
+    text-align: center;
   }
 
   .try-link {

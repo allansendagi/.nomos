@@ -5,9 +5,9 @@
 // designer file changes, update this file to match it.
 
 export const SITE = {
-  title: '.nomos — The Authority Layer',
+  title: '.nomos — The Protocol for Computable Authority',
   description:
-    'Authority becomes computable. The next primitive: authority that machines can understand, enforce, and humans can verify.',
+    'Turn institutional policy into sealed, machine-executable .nomos artifacts. Deterministic verification and cryptographic proof for every AI agent decision — authority machines can understand, enforce, and humans can verify.',
 };
 
 export const NAV_LINKS = [
@@ -155,12 +155,13 @@ export const STUDIO = {
   body: 'Transform institutional intent into a .nomos artifact. Studio is like a compiler for authority.',
   input: ['Policies', 'Regulations', 'Contracts', 'Procedures', 'Institutional logic'],
   output: 'Signed .nomos artifact',
-  exampleBefore: '"Employees may approve refunds up to $10,000 after manager review."',
+  exampleBefore:
+    '"Private schools in Dubai may increase tuition fees only with KHDA approval, within the cap set by the school\'s inspection rating."',
   exampleAfter: `{
-  authority: "Company Finance Policy",
-  rule: "refund.approval",
-  constraint: "amount <= 10000",
-  condition: "managerApprovalRequired"
+  authority: "KHDA School Fee Framework",
+  rule: "feeIncrease.approval",
+  constraint: "increase <= ratingCap",
+  condition: "khdaApprovalRequired"
 }`,
   summary: 'Studio = create authority',
 };
@@ -303,11 +304,13 @@ export const VERIFY = {
     authority: 'KHDA',
     version: '2.1.0',
     issuedBy: 'Knowledge & Human Development Authority',
-    rules: ['treatment.requiresLicense', 'amount.max=50000'],
-    conditions: { region: 'UAE', validUntil: '2027-01-01' },
+    rules: ['school.requiresValidPermit', 'feeIncrease.requiresApproval', 'feeIncrease.max=5.2'],
+    conditions: { jurisdiction: 'Dubai Private Schools', academicYear: '2026-2027' },
     provenance: { issuer: 'KHDA', timestamp: '2026-01-14T00:00:00Z' },
     signature: '3f9ab7c2e4d1f0a89be6c5d3a12ef9e21c',
   },
+  sampleCaption:
+    'KHDA — the Knowledge and Human Development Authority — regulates private schools in Dubai. This artifact seals its school-fee rules: a tuition increase is only authorized with KHDA approval, within the permitted cap.',
 };
 
 export const CLOSING = {
@@ -325,8 +328,10 @@ export const ARTIFACT_PAGE = {
   eyebrow: 'THE UNIT OF THE PROTOCOL',
   headline: 'The .nomos Artifact.',
   dek: 'A portable, cryptographically sealed representation of institutional intent — the thing that survives, is transferred, and is verified.',
-  filename: 'khda-treatment-authorization.nomos.json',
+  filename: 'khda-school-fee-authorization.nomos.json',
   sealedLabel: '✓ SEALED',
+  exampleCaption:
+    'A real-world shape: KHDA — the Knowledge and Human Development Authority — regulates private schools in Dubai. Every school fee increase requires KHDA approval, capped by the school\'s inspection rating. This artifact is that rule, made computable: portable, machine-checkable, and verifiable by anyone.',
   fields: [
     { name: 'authority', desc: 'The institution asserting this rule — a ministry, a regulator, a company, a system of record.' },
     { name: 'rules', desc: 'The deterministic conditions that must hold for an action to be permitted.' },
