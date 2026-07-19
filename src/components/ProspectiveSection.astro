@@ -1,0 +1,253 @@
+---
+import { PROSPECTIVE } from '../content/copy';
+---
+
+<section class="prospective">
+  <div class="container">
+    <p class="eyebrow">{PROSPECTIVE.number} — {PROSPECTIVE.eyebrow}</p>
+    <h2>{PROSPECTIVE.headline}</h2>
+
+    <div class="body-col">
+      {PROSPECTIVE.body.map((p) => <p class="body-text">{p}</p>)}
+    </div>
+
+    <div class="flows">
+      <div class="flow">
+        <p class="flow-label">{PROSPECTIVE.retro.label}</p>
+        {PROSPECTIVE.retro.steps.map((step, i) => (
+          <>
+            <div class="flow-node">{step}</div>
+            {i < PROSPECTIVE.retro.steps.length - 1 && <div class="flow-arrow">↓</div>}
+          </>
+        ))}
+      </div>
+      <div class="flow">
+        <p class="flow-label accent">{PROSPECTIVE.pro.label}</p>
+        {PROSPECTIVE.pro.steps.map((step, i) => (
+          <>
+            <div class:list={['flow-node', 'accent', { verify: step === '.nomos verification' }]}>{step}</div>
+            {i < PROSPECTIVE.pro.steps.length - 1 && <div class="flow-arrow accent">↓</div>}
+          </>
+        ))}
+      </div>
+    </div>
+
+    <p class="analogy">{PROSPECTIVE.analogy}</p>
+
+    <div class="transcript">
+      <p class="transcript-label">{PROSPECTIVE.transcriptLabel}</p>
+      <div class="transcript-box">
+        {PROSPECTIVE.transcript.rows.map((row) => (
+          <div class="t-row">
+            <span class="t-key">{row.k}</span>
+            <span class="t-val">{row.v}</span>
+          </div>
+        ))}
+        <div class="t-divider"></div>
+        {PROSPECTIVE.transcript.checks.map((c) => (
+          <div class="t-check"><span class="tick">✓</span> {c}</div>
+        ))}
+        <div class="t-divider"></div>
+        <div class="t-row verdict">
+          <span class="t-key">{PROSPECTIVE.transcript.verdictLabel}</span>
+          <span class="t-verdict">{PROSPECTIVE.transcript.verdict}</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="closer">{PROSPECTIVE.closer}</p>
+  </div>
+</section>
+
+<style>
+  .prospective {
+    padding: 140px 0;
+    border-top: 1px solid var(--border-primary);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-weight: var(--font-medium);
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: var(--leading-snug);
+    max-width: 22ch;
+    margin: 0 0 48px;
+  }
+
+  .body-col {
+    max-width: 620px;
+    margin-bottom: 64px;
+  }
+
+  .body-text {
+    font-size: 19px;
+    color: var(--text-secondary);
+    margin: 0 0 12px;
+  }
+
+  .body-text:last-child {
+    color: var(--text-primary);
+    font-weight: var(--font-medium);
+    margin-bottom: 0;
+  }
+
+  .flows {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    max-width: 640px;
+    margin-bottom: 64px;
+  }
+
+  .flow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flow-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .flow-label.accent {
+    color: var(--accent);
+  }
+
+  .flow-node {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-strong);
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .flow-node.accent {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .flow-node.verify {
+    background: color-mix(in oklch, var(--accent) 10%, var(--bg-primary));
+  }
+
+  .flow-arrow {
+    text-align: center;
+    width: 100%;
+    padding: 8px 0;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .flow-arrow.accent {
+    color: var(--accent);
+  }
+
+  .analogy {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.35;
+    max-width: 26ch;
+    margin: 0 0 64px;
+    color: var(--text-primary);
+  }
+
+  .transcript {
+    max-width: 640px;
+    margin-bottom: 64px;
+  }
+
+  .transcript-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .transcript-box {
+    border: 1px solid var(--border-strong);
+    padding: 24px 28px;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    background: var(--bg-secondary);
+  }
+
+  .t-row {
+    display: flex;
+    gap: 20px;
+    padding: 4px 0;
+  }
+
+  .t-key {
+    color: var(--text-muted);
+    min-width: 104px;
+    letter-spacing: 0.06em;
+  }
+
+  .t-val {
+    color: var(--text-secondary);
+  }
+
+  .t-divider {
+    border-top: 1px solid var(--border-primary);
+    margin: 12px 0;
+  }
+
+  .t-check {
+    padding: 3px 0;
+    color: var(--text-secondary);
+  }
+
+  .tick {
+    color: var(--accent);
+    margin-right: 8px;
+  }
+
+  .t-verdict {
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .closer {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 2.8vw, 34px);
+    line-height: 1.35;
+    max-width: 30ch;
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 640px) {
+    .flows {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .transcript-box {
+      padding: 18px 16px;
+      overflow-x: auto;
+    }
+
+    .t-row {
+      flex-direction: column;
+      gap: 2px;
+    }
+  }
+</style>

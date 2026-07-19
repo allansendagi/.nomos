@@ -38,6 +38,11 @@ import { EXCHANGE } from '../content/copy';
       <div class="verbs">
         {EXCHANGE.verbs.map((v) => <span>{v}</span>)}
       </div>
+
+      <p class="col-label">{EXCHANGE.simulation.label}</p>
+      <div class="simulation">
+        {EXCHANGE.simulation.body.map((p) => <p>{p}</p>)}
+      </div>
     </div>
   </section>
 
@@ -169,6 +174,24 @@ import { EXCHANGE } from '../content/copy';
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--accent);
+    margin-bottom: 56px;
+  }
+
+  .simulation {
+    max-width: 620px;
+  }
+
+  .simulation p {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin: 0 0 14px;
+  }
+
+  .simulation p:first-child {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-lg);
+    color: var(--text-primary);
   }
 
   .quote-section {

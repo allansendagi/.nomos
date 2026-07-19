@@ -130,6 +130,44 @@ export const WHY_NOW = {
   digitizedClose: '.nomos makes authority computable.',
 };
 
+export const PROSPECTIVE = {
+  number: '06',
+  eyebrow: 'BEFORE, NOT AFTER',
+  headline: 'Authority is not something you discover in an audit. It is something you query.',
+  body: [
+    'Today, institutions answer one question: "Was this action allowed?" — after it happened.',
+    'An auditor reviews the transaction. A regulator investigates the decision. A compliance team discovers the breach.',
+    'The world governs in retrospect.',
+    'A .nomos artifact inverts the question: "Can this action execute under valid authority?" — asked before anything happens, answered deterministically, every time.',
+  ],
+  retro: {
+    label: 'Governance as documentation',
+    steps: ['Action', 'Incident', 'Investigation', 'Audit', 'Remediation'],
+  },
+  pro: {
+    label: 'Governance as infrastructure',
+    steps: ['Intent', 'Proposed action', '.nomos verification', 'Authorized / Denied', 'Execution'],
+  },
+  analogy: 'Aviation does not learn about safety from crashes. Constraints are checked before flight.',
+  transcriptLabel: 'Query the authority — before the action',
+  transcript: {
+    rows: [
+      { k: 'ACTION', v: 'Approve fee increase — 4.8%' },
+      { k: 'ACTOR', v: 'Fee Review Agent v2' },
+      { k: 'AUTHORITY', v: 'KHDA School Fee Framework (reference) · v1.2.0' },
+    ],
+    checks: [
+      'school.permitValid',
+      'approval.khdaGranted',
+      'feeIncrease.percent ≤ cap[inspectionRating]',
+    ],
+    verdictLabel: 'VERDICT',
+    verdict: 'AUTHORIZED',
+  },
+  closer:
+    'The future of governance is not proving an action was allowed after the fact. It is making unauthorized actions impossible before they occur.',
+};
+
 export const AUTHORITY_STACK = {
   eyebrow: 'THE AUTHORITY STACK',
   headline: '.nomos is not trying to solve everything. It owns one layer.',
@@ -142,7 +180,7 @@ export const AUTHORITY_STACK = {
 };
 
 export const PLATFORM = {
-  number: '06',
+  number: '07',
   eyebrow: 'THE ECOSYSTEM',
   headline: 'One protocol. Multiple layers.',
 };
@@ -254,6 +292,13 @@ export const EXCHANGE = {
     { publisher: 'A company publishes', artifact: 'Procurement Approval Authority Artifact' },
   ],
   verbs: ['Discover', 'License', 'Subscribe', 'Fork', 'Adopt'],
+  simulation: {
+    label: 'More than a catalog',
+    body: [
+      'A listed artifact is not just a converted policy. It is a simulation environment for institutional intent.',
+      'Download an authority, and before deploying an agent under it, ask: can this agent take this action, under these conditions? Run the query. Get a deterministic verdict — before anything executes.',
+    ],
+  },
   summary: 'Exchange = distribute authority',
 };
 
