@@ -146,7 +146,7 @@ export const PROSPECTIVE = {
   },
   pro: {
     label: 'Governance as infrastructure',
-    steps: ['Intent', 'Proposed action', '.nomos verification', 'Authorized / Denied', 'Execution'],
+    steps: ['Intent', 'Proposed action', '.nomos verification', 'Authorized / Denied / Escalated', 'Execution'],
   },
   analogy: 'Aviation does not learn about safety from crashes. Constraints are checked before flight.',
   transcriptLabel: 'Query the authority — before the action',
