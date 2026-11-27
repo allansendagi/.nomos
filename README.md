@@ -51,3 +51,7 @@ subdomain deploy, additive only.
 `src/content/copy.ts` is transcribed near-verbatim from the positioning brief. If the copy needs
 to change, edit the brief's intent first, then update `copy.ts` — don't hand-edit component files
 with copy drift from that file.
+
+## License
+
+Copyright SafeHaven LLC, all rights reserved; see [LICENSE](LICENSE). The NOMOS Protocol specifications are open: [nomos-spec/spec](https://github.com/nomos-spec/spec). NOMOS and Computable Authority are trademarks of SafeHaven LLC.
