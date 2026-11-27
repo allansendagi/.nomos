@@ -54,4 +54,4 @@ with copy drift from that file.
 
 ## License
 
-Copyright SafeHaven LLC, all rights reserved; see [LICENSE](LICENSE). The NOMOS Protocol specifications are open: [nomos-spec/spec](https://github.com/nomos-spec/spec). NOMOS and Computable Authority are trademarks of SafeHaven LLC.
+Copyright SafeHaven LLC, all rights reserved; see [LICENSE](LICENSE). The NOMOS Protocol specifications are open: [nomos-spec/spec](https://github.com/nomos-spec/spec). NOMOS Protocol and Computable Authority are trademarks of SafeHaven LLC.
