@@ -14,5 +14,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^7.1.1"
-  }
+  },
+  "license": "UNLICENSED",
+  "private": true
 }
